@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://yoursite.com</loc>
+        <loc>https://Cxiada.github.io</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/tags/</loc>
+        <loc>https://Cxiada.github.io/tags/</loc>
         <lastmod>2018-09-11T10:44:14.124Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/sitemap/</loc>
+        <loc>https://Cxiada.github.io/sitemap/</loc>
         <lastmod>2018-09-11T10:44:04.250Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/categories/</loc>
+        <loc>https://Cxiada.github.io/categories/</loc>
         <lastmod>2018-09-11T10:43:54.639Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/calendar/</loc>
+        <loc>https://Cxiada.github.io/calendar/</loc>
         <lastmod>2018-09-11T10:43:44.826Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/about/</loc>
+        <loc>https://Cxiada.github.io/about/</loc>
         <lastmod>2018-09-11T10:43:11.322Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
