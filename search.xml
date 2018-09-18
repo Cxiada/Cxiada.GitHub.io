@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[C++中cout输出格式]]></title>
+    <url>%2F2018%2F09%2F18%2FC%2B%2B%E4%B8%ADcout%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[C++中cout的日常使用 控制输出格式 ##控制格式输出 使用样例123456789101112#include &lt;iostream&gt; //使用流对象成员函数#include &lt;iomanip&gt;//使用控制符设置using namespace std;int main()&#123; int a = 31; cout.width(8); //使用流对象成员函数 cout.fill(&apos;*&apos;); cout.unsetf(ios::dec); cout.setf(ios::hex); cout &lt;&lt; a &lt;&lt; endl; cout &lt;&lt; setw(8) &lt;&lt; setfill(&apos;*&apos;) &lt;&lt; resetiosflags(ios::dec) &lt;&lt; setiosflags(ios::hex) &lt;&lt; a &lt;&lt; endl; //使用控制符设置&#125; 参考自乌托的博客]]></content>
+      <categories>
+        <category>C/C++</category>
+      </categories>
+      <tags>
+        <tag>C/C++</tag>
+        <tag>cout</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[C++复习一：]]></title>
+    <url>%2F2018%2F09%2F18%2FC%2B%2B%E5%A4%8D%E4%B9%A0%E4%B8%80%EF%BC%9A%2F</url>
+    <content type="text"><![CDATA[变量定义、初始化 const 运算符 改颜色+斜体 算术类型 布尔类型 bool 字符类型 char 整数类型 int / long 浮点类型 float / double 用 sizeof求解占用的内存字节数带符号 signed不带符号 unsigned 初始化123int count=0; //拷贝初始化int count(0); //直接初始化int count=&#123;0&#125;; //列表初始化 左值和右值]]></content>
+      <categories>
+        <category>C/C++</category>
+      </categories>
+      <tags>
+        <tag>内置基本类</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[个人博客建站]]></title>
     <url>%2F2018%2F09%2F16%2F%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%2F</url>
     <content type="text"><![CDATA[写在前面 早就想着用Github用建个个人博客，刚开始试了官方推荐的jekyll，后来发现好多人多用hexo建站。我两个都试过了，觉得还是hexo好用关键是hexo官方有中文文档。 目前的配置是Github部署网站+Hexo建站工具+next主题+HexoEditor编辑器+腾讯云图床 1.下载安装 下载github安装，其中自带了git。 在github官网申请注册帐号，需要用到邮箱，注册后一定要记住三个东西：你的用户名(username)，你的密码(password)，以及你的邮箱(email) 安装Node.js 新建hexo文件夹，打开 Git Bash。接下来的命令均在Git Bash中执行 安装 Hexo : $npm install -g hexo 安装依赖包： $npm install 执行$hexo init 初始化网站这时候用hexo s就能预览效果了 新建Github仓库：仓库名必须为你的Github名.github.io，要不然就不能使用Github Pages服务了。。。 2.配置 SSH 本地生成公钥私钥 $ssh-keygen -t rsa -C &quot;你的邮件地址&quot; 添加公钥到 Github 根据上一步的提示，找到公钥文件（默认为id_rsa.pub），用记事本打开，全选并复制。 登录 Github，右上角 头像 -&gt; Settings —&gt; SSH keys —&gt; Add SSH key。把公钥粘贴到key中，填好title并点击 Add key。 git bash中输入命令$ssh -T git@github.com，选yes，等待片刻可看到成功提示。 3. NexT主题下载 NexT 主题是由 iissnan 大神所制作的一款简洁美观不失逼格的主题。下载方法有以下两种： 进入博客根目录/themes/, 执行$git clone https://github.com/iissnan/hexo-theme-next.git 直接进入上面的链接，在项目主页download zip文件，然后解压到博客根目录/themes/ 文件夹4. 发布使用以下两条命令进行发布，发布成功后可在浏览器中使用你的github名.github.io进入你的博客~ 12$hexo clean$hexo d -g Hexo 常用命令1.本地预览：12$hexo server//或 hexo s//然后打开浏览器输入localhost:4000可以预览博客效果，用于调试 2. 新建文章12$hexo new post &quot;title&quot;//新文章位置：/source/_posts 3. 新建页面1$hexo new page &quot;title&quot; 4. 部署并生成1$hexo d -g 5. 清除生成的文件和缓存1$hexo clean 推荐使用HexoEditor编辑器就不用手打命令了。4. next主题5. HexoEditorHexoEditor下载地址：https://github.com/zhuzhuyule/HexoEditor里面有详细安装说明Tips12//If find Error about download Electron faild ,you can try run thosenpm install -g electron@1.8.1 6. 腾讯云图床参考资料 Hexo3.1.1静态博客搭建指南 NexT使用文档 Hexo官方文档（中文版） Hexo官方文档（中文版）]]></content>
