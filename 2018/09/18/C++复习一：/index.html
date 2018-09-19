@@ -80,7 +80,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
 
-  <meta name="keywords" content="内置基本类," />
+  <meta name="keywords" content="语言基础," />
 
 
 
@@ -93,18 +93,18 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
 
-<meta name="description" content="变量定义、初始化 const 运算符">
-<meta name="keywords" content="内置基本类">
+<meta name="description" content="算术类型 变量初始化 const|constexpr auto|decltype 类型转换">
+<meta name="keywords" content="语言基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++复习一：">
 <meta property="og:url" content="https://Cxiada.github.io/2018/09/18/C++复习一：/index.html">
 <meta property="og:site_name" content="Cxiada&#39;s blog">
-<meta property="og:description" content="变量定义、初始化 const 运算符">
+<meta property="og:description" content="算术类型 变量初始化 const|constexpr auto|decltype 类型转换">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-18T16:13:15.261Z">
+<meta property="og:updated_time" content="2018-09-19T05:49:01.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++复习一：">
-<meta name="twitter:description" content="变量定义、初始化 const 运算符">
+<meta name="twitter:description" content="算术类型 变量初始化 const|constexpr auto|decltype 类型转换">
 
 
 
@@ -437,7 +437,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计"> 
-                  97 字
+                  398 字
                 </span>
               
 
@@ -475,12 +475,13 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
       
         <ul>
-<li>变量定义、初始化</li>
-<li>const</li>
-<li>运算符<a id="more"></a>  
+<li>算术类型</li>
+<li>变量初始化</li>
+<li>const|constexpr</li>
+<li>auto|decltype</li>
+<li>类型转换<a id="more"></a>  
 </li>
 </ul>
-<p><font color="#EE0000"> <strong>改颜色+斜体</strong></font></p>
 <h2 id="算术类型"><a href="#算术类型" class="headerlink" title="算术类型"></a>算术类型</h2><table>
 <thead>
 <tr>
@@ -504,8 +505,15 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 </tbody>
 </table>
 <p>用<font color="#EE0000"> <strong>sizeof</strong></font>求解占用的内存字节数<br>带符号 signed<br>不带符号 unsigned</p>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int count=0;  //拷贝初始化</span><br><span class="line">int count(0); //直接初始化</span><br><span class="line">int count=&#123;0&#125;; //列表初始化</span><br></pre></td></tr></table></figure>
-<p><strong>左值和右值</strong></p>
+<h2 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int count=0;  //拷贝初始化</span><br><span class="line">int count(0); //直接初始化</span><br><span class="line">int count=&#123;0&#125;; //列表初始化</span><br></pre></td></tr></table></figure>
+<p><strong>左值和右值</strong>  </p>
+<hr>
+<h2 id="const-constexpr与auto-decltype"><a href="#const-constexpr与auto-decltype" class="headerlink" title="const|constexpr与auto|decltype"></a>const|constexpr与auto|decltype</h2><p>const 常量<br>constexpr 常量表达式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const int size=20；//运行时常量</span><br><span class="line">constexpr int limits=size+20;//编译技术时会是一个常数</span><br></pre></td></tr></table></figure></p>
+<p>auto 自动类型说明符<br>decltype 类型指示符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auto x=1.0;  //编译时用正确的类型替换auto</span><br><span class="line">decltype(ci) x=1; //只定义x为ci的类型，不赋初值</span><br><span class="line">decltype(f() ) y=sum; //定义y为f()的返回值类型</span><br></pre></td></tr></table></figure></p>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="static-cast"><a href="#static-cast" class="headerlink" title="static_cast"></a>static_cast</h3><p>用于将一种数据类型转换成另一种数据类型，使用格式如下：<br>变量1 = static_cast&lt;变量1数据类型&gt;(另外一种数据类型变量或表达式);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a = 1;</span><br><span class="line">float b;</span><br><span class="line">b = static_cast&lt;float&gt;(a);  //类似于C语言中的b = (float)a;</span><br></pre></td></tr></table></figure></p>
+<h3 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a>const_cast</h3><p>去除表达式中的const限定。用于指针、引用、变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const int i=0;</span><br><span class="line">int *j=&amp;i;  //错误</span><br><span class="line">j=const_cast_&lt;int *&gt;(&amp;i); //正确</span><br></pre></td></tr></table></figure></p>
+<h3 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a>dynamic_cast</h3><p>执行派生类指针或引用与基类指针或引用之间的转换。</p>
+<h3 id="reinterpret-cast-不常用"><a href="#reinterpret-cast-不常用" class="headerlink" title="reinterpret_cast 不常用"></a>reinterpret_cast 不常用</h3><p>从字面意思理解是一个“重新解释的类型转换”。也就是说对任意两个类型之间的变量我们都可以个使用reinterpret_cast在他们之间相互转换，无视类型信息。</p>
 
       
     </div>
@@ -541,7 +549,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
       
         <div class="post-tags">
           
-            <a href="/tags/内置基本类/" rel="tag"><i class="fa fa-tag"></i> 内置基本类</a>
+            <a href="/tags/语言基础/" rel="tag"><i class="fa fa-tag"></i> 语言基础</a>
           
         </div>
       
@@ -747,7 +755,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算术类型"><span class="nav-number">1.</span> <span class="nav-text">算术类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">2.</span> <span class="nav-text">初始化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算术类型"><span class="nav-number">1.</span> <span class="nav-text">算术类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量初始化"><span class="nav-number">2.</span> <span class="nav-text">变量初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const-constexpr与auto-decltype"><span class="nav-number">3.</span> <span class="nav-text">const|constexpr与auto|decltype</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">4.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#static-cast"><span class="nav-number">4.1.</span> <span class="nav-text">static_cast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const-cast"><span class="nav-number">4.2.</span> <span class="nav-text">const_cast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dynamic-cast"><span class="nav-number">4.3.</span> <span class="nav-text">dynamic_cast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reinterpret-cast-不常用"><span class="nav-number">4.4.</span> <span class="nav-text">reinterpret_cast 不常用</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -781,7 +789,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.3k</span>
+    <span title="Site words total count">1.6k</span>
   
   -->
 </div>

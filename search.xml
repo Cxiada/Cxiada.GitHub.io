@@ -15,12 +15,12 @@
   <entry>
     <title><![CDATA[C++复习一：]]></title>
     <url>%2F2018%2F09%2F18%2FC%2B%2B%E5%A4%8D%E4%B9%A0%E4%B8%80%EF%BC%9A%2F</url>
-    <content type="text"><![CDATA[变量定义、初始化 const 运算符 改颜色+斜体 算术类型 布尔类型 bool 字符类型 char 整数类型 int / long 浮点类型 float / double 用 sizeof求解占用的内存字节数带符号 signed不带符号 unsigned 初始化123int count=0; //拷贝初始化int count(0); //直接初始化int count=&#123;0&#125;; //列表初始化 左值和右值]]></content>
+    <content type="text"><![CDATA[算术类型 变量初始化 const|constexpr auto|decltype 类型转换 算术类型 布尔类型 bool 字符类型 char 整数类型 int / long 浮点类型 float / double 用 sizeof求解占用的内存字节数带符号 signed不带符号 unsigned 变量初始化123int count=0; //拷贝初始化int count(0); //直接初始化int count=&#123;0&#125;; //列表初始化 左值和右值 const|constexpr与auto|decltypeconst 常量constexpr 常量表达式12const int size=20；//运行时常量constexpr int limits=size+20;//编译技术时会是一个常数 auto 自动类型说明符decltype 类型指示符123auto x=1.0; //编译时用正确的类型替换autodecltype(ci) x=1; //只定义x为ci的类型，不赋初值decltype(f() ) y=sum; //定义y为f()的返回值类型 类型转换static_cast用于将一种数据类型转换成另一种数据类型，使用格式如下：变量1 = static_cast&lt;变量1数据类型&gt;(另外一种数据类型变量或表达式);123int a = 1;float b;b = static_cast&lt;float&gt;(a); //类似于C语言中的b = (float)a; const_cast去除表达式中的const限定。用于指针、引用、变量123const int i=0;int *j=&amp;i; //错误j=const_cast_&lt;int *&gt;(&amp;i); //正确 dynamic_cast执行派生类指针或引用与基类指针或引用之间的转换。 reinterpret_cast 不常用从字面意思理解是一个“重新解释的类型转换”。也就是说对任意两个类型之间的变量我们都可以个使用reinterpret_cast在他们之间相互转换，无视类型信息。]]></content>
       <categories>
         <category>C/C++</category>
       </categories>
       <tags>
-        <tag>内置基本类</tag>
+        <tag>语言基础</tag>
       </tags>
   </entry>
   <entry>
