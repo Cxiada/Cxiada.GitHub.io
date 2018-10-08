@@ -96,14 +96,14 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 <meta name="description" content="算术类型 变量初始化 const|constexpr auto|decltype 类型转换">
 <meta name="keywords" content="语言基础">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++复习一：">
+<meta property="og:title" content="C++复习一：语言基础">
 <meta property="og:url" content="https://Cxiada.github.io/2018/09/18/C++复习一：/index.html">
 <meta property="og:site_name" content="Cxiada&#39;s blog">
 <meta property="og:description" content="算术类型 变量初始化 const|constexpr auto|decltype 类型转换">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-19T05:49:01.061Z">
+<meta property="og:updated_time" content="2018-09-19T15:38:15.123Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++复习一：">
+<meta name="twitter:title" content="C++复习一：语言基础">
 <meta name="twitter:description" content="算术类型 变量初始化 const|constexpr auto|decltype 类型转换">
 
 
@@ -140,7 +140,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
 
-  <title>C++复习一： | Cxiada's blog</title>
+  <title>C++复习一：语言基础 | Cxiada's blog</title>
   
 
 
@@ -348,7 +348,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
         
         
-          <h1 class="post-title" itemprop="name headline">C++复习一：</h1>
+          <h1 class="post-title" itemprop="name headline">C++复习一：语言基础</h1>
         
 
         <div class="post-meta">
@@ -411,7 +411,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
           
           
-             <span id="/2018/09/18/C++复习一：/" class="leancloud_visitors" data-flag-title="C++复习一：">
+             <span id="/2018/09/18/C++复习一：/" class="leancloud_visitors" data-flag-title="C++复习一：语言基础">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -437,7 +437,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计"> 
-                  398 字
+                  493 字
                 </span>
               
 
@@ -514,6 +514,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 <h3 id="const-cast"><a href="#const-cast" class="headerlink" title="const_cast"></a>const_cast</h3><p>去除表达式中的const限定。用于指针、引用、变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const int i=0;</span><br><span class="line">int *j=&amp;i;  //错误</span><br><span class="line">j=const_cast_&lt;int *&gt;(&amp;i); //正确</span><br></pre></td></tr></table></figure></p>
 <h3 id="dynamic-cast"><a href="#dynamic-cast" class="headerlink" title="dynamic_cast"></a>dynamic_cast</h3><p>执行派生类指针或引用与基类指针或引用之间的转换。</p>
 <h3 id="reinterpret-cast-不常用"><a href="#reinterpret-cast-不常用" class="headerlink" title="reinterpret_cast 不常用"></a>reinterpret_cast 不常用</h3><p>从字面意思理解是一个“重新解释的类型转换”。也就是说对任意两个类型之间的变量我们都可以个使用reinterpret_cast在他们之间相互转换，无视类型信息。</p>
+<h2 id="按位运算符"><a href="#按位运算符" class="headerlink" title="按位运算符"></a>按位运算符</h2><p>按位与运算符（&amp;）<br>按位或运算符（|）<br>异或运算符（^）<br>取反运算符（~）<br>左移运算符（&lt;&lt;） 右补0<br>右移运算符（&gt;&gt;） 左补0</p>
+<p><font color="#EE0000"> <strong>不同长度的数据进行位运算</strong></font><br>如果两个不同长度的数据进行位运算时，系统会将二者按右端对齐，然后进行位运算。</p>
 
       
     </div>
@@ -534,7 +536,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://Cxiada.github.io/2018/09/18/C++复习一：/" title="C++复习一：">https://Cxiada.github.io/2018/09/18/C++复习一：/</a>
+    <a href="https://Cxiada.github.io/2018/09/18/C++复习一：/" title="C++复习一：语言基础">https://Cxiada.github.io/2018/09/18/C++复习一：/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -671,7 +673,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -682,7 +684,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -693,7 +695,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -755,7 +757,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算术类型"><span class="nav-number">1.</span> <span class="nav-text">算术类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量初始化"><span class="nav-number">2.</span> <span class="nav-text">变量初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const-constexpr与auto-decltype"><span class="nav-number">3.</span> <span class="nav-text">const|constexpr与auto|decltype</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">4.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#static-cast"><span class="nav-number">4.1.</span> <span class="nav-text">static_cast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const-cast"><span class="nav-number">4.2.</span> <span class="nav-text">const_cast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dynamic-cast"><span class="nav-number">4.3.</span> <span class="nav-text">dynamic_cast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reinterpret-cast-不常用"><span class="nav-number">4.4.</span> <span class="nav-text">reinterpret_cast 不常用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算术类型"><span class="nav-number">1.</span> <span class="nav-text">算术类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量初始化"><span class="nav-number">2.</span> <span class="nav-text">变量初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const-constexpr与auto-decltype"><span class="nav-number">3.</span> <span class="nav-text">const|constexpr与auto|decltype</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">4.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#static-cast"><span class="nav-number">4.1.</span> <span class="nav-text">static_cast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const-cast"><span class="nav-number">4.2.</span> <span class="nav-text">const_cast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dynamic-cast"><span class="nav-number">4.3.</span> <span class="nav-text">dynamic_cast</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reinterpret-cast-不常用"><span class="nav-number">4.4.</span> <span class="nav-text">reinterpret_cast 不常用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按位运算符"><span class="nav-number">5.</span> <span class="nav-text">按位运算符</span></a></li></ol></div>
             
 
           </div>
@@ -789,7 +791,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.6k</span>
+    <span title="Site words total count">1.8k</span>
   
   -->
 </div>
@@ -940,7 +942,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
         var disqus_config = function () {
           this.page.url = 'https://Cxiada.github.io/2018/09/18/C++复习一：/';
           this.page.identifier = '2018/09/18/C++复习一：/';
-          this.page.title = 'C++复习一：';
+          this.page.title = 'C++复习一：语言基础';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
