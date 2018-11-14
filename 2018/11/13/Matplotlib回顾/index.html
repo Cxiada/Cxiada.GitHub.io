@@ -93,18 +93,18 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
 
-<meta name="description" content="简单回顾了Matplotlib的基本操作方便当字典查">
+<meta name="description" content="简单回顾了Matplotlib的基本操作">
 <meta name="keywords" content="机器学习基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matplotlib回顾">
 <meta property="og:url" content="https://Cxiada.github.io/2018/11/13/Matplotlib回顾/index.html">
 <meta property="og:site_name" content="Cxiada&#39;s blog">
-<meta property="og:description" content="简单回顾了Matplotlib的基本操作方便当字典查">
+<meta property="og:description" content="简单回顾了Matplotlib的基本操作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-13T15:43:31.455Z">
+<meta property="og:updated_time" content="2018-11-14T16:03:49.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Matplotlib回顾">
-<meta name="twitter:description" content="简单回顾了Matplotlib的基本操作方便当字典查">
+<meta name="twitter:description" content="简单回顾了Matplotlib的基本操作">
 
 
 
@@ -437,7 +437,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计"> 
-                  509 字
+                  503 字
                 </span>
               
 
@@ -474,7 +474,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
       
 
       
-        <p>简单回顾了Matplotlib的基本操作<br>方便当字典查<br><a id="more"></a>  </p>
+        <p>简单回顾了Matplotlib的基本操作</p>
+<a id="more"></a>  
 <h3 id="Matplotlib回顾"><a href="#Matplotlib回顾" class="headerlink" title="Matplotlib回顾"></a>Matplotlib回顾</h3><h4 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="comment">#%matploylib notebook</span></span><br><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plot.show()   <span class="comment">#一个session只能使用一次，通常在末行开启</span></span><br><span class="line"></span><br><span class="line">fig.savefig(<span class="string">'my_photo.png'</span>)  <span class="comment">#保存图片</span></span><br></pre></td></tr></table></figure>
 <h4 id="简易线性图—-gt-颜色-坐标轴-标签"><a href="#简易线性图—-gt-颜色-坐标轴-标签" class="headerlink" title="简易线性图—&gt;颜色/坐标轴/标签"></a>简易线性图—&gt;颜色/坐标轴/标签</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">fig=plot.figure()</span><br><span class="line">ax=plt.axes()</span><br><span class="line"></span><br><span class="line"><span class="comment">#直线</span></span><br><span class="line">x=np.linspace(<span class="number">0</span>,<span class="number">10</span>,<span class="number">1000</span>)</span><br><span class="line">plt.plot(x,np.sin(x))</span><br><span class="line"></span><br><span class="line"><span class="comment">#颜色</span></span><br><span class="line">pltpltpltplt.plot(x,np.sin(x<span class="number">-0</span>)，color=<span class="string">'blue'</span>)</span><br><span class="line">pltpltplt.plot(x,np.sin(x<span class="number">-1</span>),color=<span class="string">'g'</span>)     <span class="comment">#rgbcmyk</span></span><br><span class="line">pltplt.plot(x,np.sin(x<span class="number">-2</span>),color=<span class="string">'0.75'</span>)  <span class="comment">#灰度：0-1</span></span><br><span class="line">plt.plot(x,np.sin(x<span class="number">-3</span>),color=<span class="string">'#FFFFDD'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#元素</span></span><br><span class="line">plt.plot(x,np.sin(x<span class="number">-0</span>)，linestyle=<span class="string">'-'</span>)</span><br><span class="line"><span class="comment">#  '-'   '--'    '-.'     ':'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#颜色+元素   ‘--g’</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#坐标轴</span></span><br><span class="line">plt.xlim(<span class="number">-1</span>,<span class="number">1</span>) <span class="comment">#正序</span></span><br><span class="line">plt.ylim(<span class="number">10</span>,<span class="number">1</span>) <span class="comment">#逆序</span></span><br><span class="line">plt.axis(<span class="string">'tight'</span>)  <span class="comment">#自动收缩空白区域</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#标签</span></span><br><span class="line">title</span><br><span class="line">xlabel  ylabel</span><br><span class="line">legend</span><br></pre></td></tr></table></figure>
 <h4 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x,y, <span class="string">'o'</span>  ,color=<span class="string">'r'</span>)  </span><br><span class="line"><span class="comment">#'o'   '.'  ','  'x'   '+'   'v'  '^'  '&lt;'  '&gt;'  's'  'd'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#一步到位</span></span><br><span class="line">ptl.plot(x,y,<span class="string">'-ok'</span>)  <span class="comment">#直线(-) 圆圈(o)  黑色(k)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#配置参数</span></span><br><span class="line">plt.plot(x,y,<span class="string">'-ok'</span>,</span><br><span class="line">        markersize=<span class="number">15</span>,  <span class="comment">#点大小</span></span><br><span class="line">        linewidth=<span class="number">4</span>,    <span class="comment">#线宽</span></span><br><span class="line">        markerfacecolor=<span class="string">'white'</span>,  <span class="comment">#中心点颜色</span></span><br><span class="line">        markeredgewidth=<span class="number">2</span>         <span class="comment">#点边缘</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">plt.scatter(x,y,marker=<span class="string">'o'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#不同颜色深浅的散点图</span></span><br><span class="line">rng=np.random.RandomState(<span class="number">0</span>)</span><br><span class="line">x=rng.randn(<span class="number">100</span>)</span><br><span class="line">y=rng.randn(<span class="number">100</span>)</span><br><span class="line">colors=rng.rand(<span class="number">100</span>)</span><br><span class="line">sizes=rng.rand(<span class="number">100</span>)*<span class="number">1000</span></span><br><span class="line">plt.scatter(x,y,c=colors,s=sizes,alpha=<span class="number">0.4</span>,cmap=<span class="string">'viridis'</span>)</span><br><span class="line">plt.colorbar()  <span class="comment">#颜色栏</span></span><br></pre></td></tr></table></figure>
@@ -528,8 +529,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/13/Pandas回顾/" rel="next" title="Pandas回顾">
-                <i class="fa fa-chevron-left"></i> Pandas回顾
+              <a href="/2018/11/12/Numpy回顾/" rel="next" title="Numpy回顾">
+                <i class="fa fa-chevron-left"></i> Numpy回顾
               </a>
             
           </div>
@@ -537,6 +538,10 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/13/Sklearn回顾/" rel="prev" title="Sklearn回顾">
+                Sklearn回顾 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -633,7 +638,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -644,7 +649,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -751,7 +756,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">3.3k</span>
+    <span title="Site words total count">3.5k</span>
   
   -->
 </div>

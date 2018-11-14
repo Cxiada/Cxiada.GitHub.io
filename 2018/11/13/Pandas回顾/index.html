@@ -93,18 +93,18 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
 
-<meta name="description" content="简单回顾了Pandas的基本操作方便当字典查">
+<meta name="description" content="简单回顾了Pandas的基本操作">
 <meta name="keywords" content="机器学习基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pandas回顾">
 <meta property="og:url" content="https://Cxiada.github.io/2018/11/13/Pandas回顾/index.html">
 <meta property="og:site_name" content="Cxiada&#39;s blog">
-<meta property="og:description" content="简单回顾了Pandas的基本操作方便当字典查">
+<meta property="og:description" content="简单回顾了Pandas的基本操作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-13T15:43:58.054Z">
+<meta property="og:updated_time" content="2018-11-14T16:03:24.385Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pandas回顾">
-<meta name="twitter:description" content="简单回顾了Pandas的基本操作方便当字典查">
+<meta name="twitter:description" content="简单回顾了Pandas的基本操作">
 
 
 
@@ -437,7 +437,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计"> 
-                  550 字
+                  544 字
                 </span>
               
 
@@ -474,7 +474,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
       
 
       
-        <p>简单回顾了Pandas的基本操作<br>方便当字典查<br><a id="more"></a>  </p>
+        <p>简单回顾了Pandas的基本操作</p>
+<a id="more"></a>  
 <h3 id="Pandas回顾"><a href="#Pandas回顾" class="headerlink" title="Pandas回顾"></a>Pandas回顾</h3><p>[TOC]</p>
 <h4 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#字典-数组</span></span><br><span class="line">Series=pd.Series([<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>])   <span class="comment">#直接式</span></span><br><span class="line"><span class="comment">#Series=pd.Series(&#123;0:11,1:12,2:13,3:14&#125;)  #字典式</span></span><br><span class="line">index=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">Series=pd.Series(data,index=index)  <span class="comment">#索引</span></span><br><span class="line"></span><br><span class="line">Series</span><br><span class="line"><span class="comment">#index values</span></span><br><span class="line"><span class="comment">#0    11</span></span><br><span class="line"><span class="comment">#1    12</span></span><br><span class="line"><span class="comment">#2    13</span></span><br><span class="line"><span class="comment">#3    14</span></span><br><span class="line"><span class="comment">#dtype: int64</span></span><br><span class="line"><span class="comment">#有index  values   dtype </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#数据索引</span></span><br><span class="line">Series.loc   显式从<span class="number">1</span>开始</span><br><span class="line">Series.iloc  隐式 从<span class="number">0</span>开始，左闭右开</span><br></pre></td></tr></table></figure>
 <h4 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#字典-Series</span></span><br><span class="line">data=pd.DataFrame(&#123;<span class="string">'col1'</span>:Series1,</span><br><span class="line">                   <span class="string">'col2'</span>:Series2 &#125;)</span><br><span class="line"></span><br><span class="line">data</span><br><span class="line"><span class="comment">#index   col1  col2</span></span><br><span class="line"><span class="comment">#Califor  11    12</span></span><br><span class="line"><span class="comment">#Flori    12    12</span></span><br><span class="line"><span class="comment">#Texas    2     3</span></span><br><span class="line"><span class="comment">#有index columns</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#索引方式</span></span><br><span class="line">data[<span class="string">'col1'</span>]</span><br><span class="line">data.loc[:,<span class="string">'col1'</span>:<span class="string">'col2'</span>]</span><br><span class="line"><span class="comment">#data.ix[:3,'col1':'col2']</span></span><br></pre></td></tr></table></figure>
@@ -532,8 +533,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/12/Numpy回顾/" rel="next" title="Numpy回顾">
-                <i class="fa fa-chevron-left"></i> Numpy回顾
+              <a href="/2018/11/13/Sklearn回顾/" rel="next" title="Sklearn回顾">
+                <i class="fa fa-chevron-left"></i> Sklearn回顾
               </a>
             
           </div>
@@ -541,10 +542,6 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/13/Matplotlib回顾/" rel="prev" title="Matplotlib回顾">
-                Matplotlib回顾 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -641,7 +638,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -652,7 +649,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -759,7 +756,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">3.3k</span>
+    <span title="Site words total count">3.5k</span>
   
   -->
 </div>
