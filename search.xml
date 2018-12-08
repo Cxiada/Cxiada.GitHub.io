@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Pandas回顾]]></title>
-    <url>%2F2018%2F11%2F13%2FPandas%E5%9B%9E%E9%A1%BE%2F</url>
-    <content type="text"><![CDATA[简单回顾了Pandas的基本操作 Pandas回顾[TOC] Series123456789101112131415161718#字典-数组Series=pd.Series([11,12,13,14]) #直接式#Series=pd.Series(&#123;0:11,1:12,2:13,3:14&#125;) #字典式index=[0,1,2,3]Series=pd.Series(data,index=index) #索引Series#index values#0 11#1 12#2 13#3 14#dtype: int64#有index values dtype #数据索引Series.loc 显式从1开始Series.iloc 隐式 从0开始，左闭右开 DataFrame123456789101112131415#字典-Seriesdata=pd.DataFrame(&#123;'col1':Series1, 'col2':Series2 &#125;)data#index col1 col2#Califor 11 12#Flori 12 12#Texas 2 3#有index columns#索引方式data['col1']data.loc[:,'col1':'col2']#data.ix[:3,'col1':'col2'] 索引对齐12345678910111213141516171819202122A=pd.DataFrame# a b#0 2 3#1 4 5B=pd.DataFrame# a b c#0 1 1 1#1 1 1 1#2 1 1 1A.add(B,fill.value=A.stack().mean())#0 3 4 NaN#1 5 6 NaN#2 NaN NaN NaN #NaN=fill.value+ add- sub* mul/ div// floordiv% mod** pow 缺失值1234567891011isnull #返回marknotnull #与isnull相反dropna(axis，how,thresh) #返回剔除缺失值的数据axis=1 #按维度剔除how=all/any #剔除要求thresh=3 #最小数目fillna(method,axis) #返回填充缺失值的数据副本method=ffill/bfill #继承前/后数值来填充axis #继承方向 高维数据多级索引二维Series12345678910#二维Seriesdata=np.random.randn(4)index=[('a',1),('a',2),('b',1),('b',2)] #元组Series=pd.Series(data,index=index)index=pd.MultiIndex.from_tuples(index) #从元组转换# MultiIndex(levels=[['a', 'b'], [1, 2]],# labels=[[0, 0, 1, 1], [0, 1, 0, 1]])Series=Series.reindex(index) #多级索引data=Seires.unstack() #与DataFrame转换 ---stack 高维DataFrame1234567891011121314151617181920#高维DataFrameoridata=np.random.randn(4,6)index=pd.MultiIndex.from_product([['a','b'],[1,2]], names=['level1','level2'])columns=pd.MultiIndex.from_product([['data1','data2','data3'],['temp1','temp2']], names=['label1','label2'])data=pd.DataFrame(data=oridata,index=index,columns=columns) #两个索引的笛卡尔积data# label1 data1 data2 data3# label2 temp1 temp2 temp1 temp2 temp1 temp2#level1 level2#a 1# 2#b 1# 2#数据索引idx=pd.IndexSlicedata.loc[ idx[:,1] ,idx[:,'temp2'] ] 索引操作12345678对DataFrame的操作sort.index() #方法--排序(字典序)对Series的操作unstack(level=0) #---&gt;二维 stack #反操作reset_index(name='level1') #行列转换 数据集操作123456789101112#简单合并pd.concat( ([DataFrame1,DataFrame2]), axis=0 #合并方向 verity_integrity=True #重复索引触发异常 ignore_index=True #创造新的索引 key=['DataFrame1','DataFrame2'] #增加多级索引 join='inner'/'outer' #列名的交集/合集 )#数据库式合并pd.merge([DataFrame1,DataFrame2])]]></content>
+    <title><![CDATA[Pytorch模型保存与载入]]></title>
+    <url>%2F2018%2F11%2F28%2FPytorch%E6%A8%A1%E5%9E%8B%E4%BF%9D%E5%AD%98%E4%B8%8E%E8%BD%BD%E5%85%A5%2F</url>
+    <content type="text"><![CDATA[Pytorch基础，主要是保存模型数据，载入模型数据 [TOC] pytorch保存数据1234567state=&#123;'net':model.state_dict(),'optimizer':optimizer.state_dict(),'epoch':Epoch&#125;dir='model.pth'torch.save(state,dir)#或者# torch.save(cnn1,'cnn1.pkl') #保存整个网络结构与参数# torch.save(cnn1.state_dict(),'cnn1_params.pkl') #只保存参数 pytorch载入123456789dir='model.pth'state=torch.load(dir)model.load_state_dict(state['net'])optimizer.load_state_dict(state['optimizer'])Epoch=state['epoch']#或者net=Net()net.load_state_dict(torch.load('net.pth'))]]></content>
       <categories>
-        <category>python/Pandas</category>
+        <category>python/PyTorch</category>
+      </categories>
+      <tags>
+        <tag>机器学习基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PyTorch加载数据集]]></title>
+    <url>%2F2018%2F11%2F28%2FPyTorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86%2F</url>
+    <content type="text"><![CDATA[PyTorch基础，主要是数据的加载和保存 [TOC] Dataset类 在PyTorch中，加载数据集，需要继承torch.utils.data.dataset 中的Dataset类重写方法 12&gt; from torch.utils.data.dataset import Dataset&gt; 12345678class dataset(Dataset): def __init__(self, ...): def __getitem__(self, ...): return (...) def __len__(self, ...): return len(...) 一个读取图像数据集的例子 1234567891011121314151617181920212223242526272829import osfrom PIL import Imageclass DatasetFromjpg(Dataset): def __init__(self, root, transforms=None): """ Args: root (string): 文件路径 transform: transform 操作 """ self.root=root imgs=os.listdir(root) #这里只是加载路径 self.imgs=[os.path.join(root,img) for img in imgs] #list[图片路径] self.transforms = transforms def __getitem__(self, index): #cat.10.jpg/dog.20.jpg #dog-&gt;1 cat-&gt;0 img_path=self.imgs[index] label=1 if 'dog' in img_path.split('/')[-1] else 0 pil=Image.open(img_path) if self.transforms is not None: img_as_tensor = self.transforms(pil) return (img_as_tensor, label) else: img_as_np = np.asarray(pil) return (img_as_np,label) def __len__(self): return len(self.imgs) transforms 针对PIL图片常用函数 12&gt; from torchvision import transforms&gt; 1234567891011#有次序！！！transformations = /transforms.Compose([transforms.Resize(224), #调整大小，保持比例 最小边-224 transforms.CenterCrop(234), #中心裁剪 transforms.RandomCrop, # transforms.RandomSizedCrop, # transforms.Pad #填充 transforms.ToTensor(), transforms.ToPILImage(), transforms.Normalize(mean=[.5,.5,.5],std=[.5,.5,.5]) ]) # 将读取的图片变化 DataLoader类 加载数据 12&gt; from torch.utils.data import DataLoader&gt; 1234567891011121314train_loader=DataLoader(dataset=dataset, batch_size=10, shuffle=True, #乱序 num_workers=2, #CPU多线程 sample #样本抽样 )#DataLoader是一个迭代对象from torchvision.utils import make_grid,save_imagedataiter = iter(train_loader)images,labels=next(dataiter)photos=make_grid(imgs,3) #tensor类型 3*3网格# plt.imshow(photos)save_image(photos,'save_photos.jpg')]]></content>
+      <categories>
+        <category>python/PyTorch</category>
+      </categories>
+      <tags>
+        <tag>机器学习基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PyTorch学习]]></title>
+    <url>%2F2018%2F11%2F28%2FPyTorch%E5%AD%A6%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[机器学习基础，主要是简单的创建数组、算数操作、类型转换等 [TOC] 注意123#inplace方式a.add(b) a.add_(b) #会改变自身数据 函数名以_结尾的都是inplace方式 基础操作创建数组123456789101112#创建Tensortensor([list]) 类似np.array的构造函数 ones(*sizes) 全1Tensor zeros(*sizes) 全0Tensor eye(*sizes) 对角线为1，其他为0 arange(s,e,step) 从s到e，步长为step linspace(s,e,steps) 从s到e，均匀切分成steps份 rand/randn(*sizes) 均匀/标准分布 normal(mean,std) 正态分布/均匀分布 randperm(m) 随机排列 #a.size() 是tuple的子类 Tensorlist/numpy123456#Tensor&lt;---&gt;lista.tolist()#Tensor&lt;-----&gt;numpytorch.from_numpya.numpy() 算术操作123456789101112131415161718192021222324252627282930torch.view #=reshapetorch.unsqueeze(d) #增加维度 从0开始torch.squeeze(d) #压缩为1的维度torch.mm #矩阵乘法t #转置 clamp(input, min, max) #超过min和max部分截断 #逐元素操作abs/sqrt/div/exp/fmod/log/pow.. #绝对值/平方根/除法/指数/求余/求幂.. cos/sin/asin/atan2/cosh #相关三角函数 ceil/round/floor/trunc #上取整/四舍五入/下取整/只保留整数部分 sigmod/tanh #激活函数 #归并操作mean/sum/median/mode #均值/和/中位数/众数 norm/dist #范数/距离 std/var #标准差/方差 cumsum/cumprod #累加/累乘 #线性代数trace #对角线元素之和(矩阵的迹) diag #对角线元素 triu/tril #矩阵的上三角/下三角，可指定偏移量 mm/bmm #矩阵乘法，batch的矩阵乘法 addmm/addbmm/addmv/addr/badbmm #矩阵运算 dot/cross #内积/外积 inverse #求逆矩阵 svd #奇异值分解 Tensor类型转换123456789101112131415b=a.type(torch.FloatTensor)a.float()#CPU版torch.FloatTensortorch.DoubleTensortorch.HalfTensor #16 floattorch.ByteTensor #unsigned char torch.CharTensortorch.ShortTensortorch.IntTensortorch.LongTensor#CPU---&gt;GPUtensor.cuda()tensor.cpu() 保存与载入12torch.save(a,'a.pth')torch.loas(a,'a.pth') Variable 123data tensor类型grad 梯度creator 模型相关12345678#针对dropoutmodel.training() #表明在train模式model.eval() #针对测试torch.save(net.state_dict(),'net.pth')net=Net()net.load_state_dict(torch.load('net.pth'))]]></content>
+      <categories>
+        <category>python/PyTorch</category>
       </categories>
       <tags>
         <tag>机器学习基础</tag>
@@ -13,10 +35,21 @@
   </entry>
   <entry>
     <title><![CDATA[Sklearn回顾]]></title>
-    <url>%2F2018%2F11%2F13%2FSklearn%E5%9B%9E%E9%A1%BE%2F</url>
+    <url>%2F2018%2F11%2F15%2FSklearn%E5%9B%9E%E9%A1%BE%2F</url>
     <content type="text"><![CDATA[简单回顾了Sklearn的基本操作 Sklearn回顾数据输入1234from sklearn.cross_validation import train_test_splitX_train,X_test,Y_train,Y_test=train_test_split(X,y, train_size=0.7, random_state=1) 交叉验证！图片 12from sklearn.cross_validation import cross_val_scorecross_val_score(model,X,y,cv=5) 混淆矩阵！图片 1234import seaborn as snsfrom sklearn.metrics import confusion_matrixmat=confusion_matrix(Y_test,y_pred)sns.heatmap(mat,square=True,annot=True,cbar=False) 简单线性回归1234567891011121314151617181920212223#导入数据from sklearn.cross_validation import train_test_splitX_train,X_test,y_train,y_test=train_test_split(X,y, train_size=0.7, random_state=1)X_train=X_train.valuesy_train=y_train.values#2.导入模型from sklearn.linear_model import LinearRegressionmodel=LinearRegression(fit_intercept=True) #设置截距#3.模型适配（训练）model.fit(X_train,y_train)#4.可以查看参数矩阵model.coef_,model.intercept_#5.预测y_pred=model.predict(X_test)#6.评估from sklearn.metrics import accuracy_scoreaccuracy_score(y_test,y_pred)#(7.混淆矩阵)from sklearn.metrics import confusion_matrixmat=confusion_matrix(y_test,y_pred)sns.heatmap(mat,square=True,annot=True,cbar=False) 简单高斯贝叶斯 123from sklearn.naive_bayes import GaussianNBmodel=GaussianNB()model.fit(X_train,y_train)]]></content>
       <categories>
         <category>python/Sklearn</category>
+      </categories>
+      <tags>
+        <tag>机器学习基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pandas回顾]]></title>
+    <url>%2F2018%2F11%2F13%2FPandas%E5%9B%9E%E9%A1%BE%2F</url>
+    <content type="text"><![CDATA[简单回顾了Pandas的基本操作 Pandas回顾[TOC] Series123456789101112131415161718#字典-数组Series=pd.Series([11,12,13,14]) #直接式#Series=pd.Series(&#123;0:11,1:12,2:13,3:14&#125;) #字典式index=[0,1,2,3]Series=pd.Series(data,index=index) #索引Series#index values#0 11#1 12#2 13#3 14#dtype: int64#有index values dtype #数据索引Series.loc 显式从1开始Series.iloc 隐式 从0开始，左闭右开 DataFrame123456789101112131415#字典-Seriesdata=pd.DataFrame(&#123;'col1':Series1, 'col2':Series2 &#125;)data#index col1 col2#Califor 11 12#Flori 12 12#Texas 2 3#有index columns#索引方式data['col1']data.loc[:,'col1':'col2']#data.ix[:3,'col1':'col2'] 索引对齐12345678910111213141516171819202122A=pd.DataFrame# a b#0 2 3#1 4 5B=pd.DataFrame# a b c#0 1 1 1#1 1 1 1#2 1 1 1A.add(B,fill.value=A.stack().mean())#0 3 4 NaN#1 5 6 NaN#2 NaN NaN NaN #NaN=fill.value+ add- sub* mul/ div// floordiv% mod** pow 缺失值1234567891011isnull #返回marknotnull #与isnull相反dropna(axis，how,thresh) #返回剔除缺失值的数据axis=1 #按维度剔除how=all/any #剔除要求thresh=3 #最小数目fillna(method,axis) #返回填充缺失值的数据副本method=ffill/bfill #继承前/后数值来填充axis #继承方向 高维数据多级索引二维Series12345678910#二维Seriesdata=np.random.randn(4)index=[('a',1),('a',2),('b',1),('b',2)] #元组Series=pd.Series(data,index=index)index=pd.MultiIndex.from_tuples(index) #从元组转换# MultiIndex(levels=[['a', 'b'], [1, 2]],# labels=[[0, 0, 1, 1], [0, 1, 0, 1]])Series=Series.reindex(index) #多级索引data=Seires.unstack() #与DataFrame转换 ---stack 高维DataFrame1234567891011121314151617181920#高维DataFrameoridata=np.random.randn(4,6)index=pd.MultiIndex.from_product([['a','b'],[1,2]], names=['level1','level2'])columns=pd.MultiIndex.from_product([['data1','data2','data3'],['temp1','temp2']], names=['label1','label2'])data=pd.DataFrame(data=oridata,index=index,columns=columns) #两个索引的笛卡尔积data# label1 data1 data2 data3# label2 temp1 temp2 temp1 temp2 temp1 temp2#level1 level2#a 1# 2#b 1# 2#数据索引idx=pd.IndexSlicedata.loc[ idx[:,1] ,idx[:,'temp2'] ] 索引操作12345678对DataFrame的操作sort.index() #方法--排序(字典序)对Series的操作unstack(level=0) #---&gt;二维 stack #反操作reset_index(name='level1') #行列转换 数据集操作123456789101112#简单合并pd.concat( ([DataFrame1,DataFrame2]), axis=0 #合并方向 verity_integrity=True #重复索引触发异常 ignore_index=True #创造新的索引 key=['DataFrame1','DataFrame2'] #增加多级索引 join='inner'/'outer' #列名的交集/合集 )#数据库式合并pd.merge([DataFrame1,DataFrame2])]]></content>
+      <categories>
+        <category>python/Pandas</category>
       </categories>
       <tags>
         <tag>机器学习基础</tag>
