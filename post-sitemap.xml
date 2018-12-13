@@ -7,48 +7,16 @@
     </url>
 
     <url>
-        <loc>https://Cxiada.github.io/2018/11/28/Pytorch%E6%A8%A1%E5%9E%8B%E4%BF%9D%E5%AD%98%E4%B8%8E%E8%BD%BD%E5%85%A5/</loc>
-        <lastmod>2018-11-30T02:40:16.739Z</lastmod>
+        <loc>https://Cxiada.github.io/2018/12/11/VGG%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+        <lastmod>2018-12-13T12:09:01.669Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://Cxiada.github.io/2018/11/28/PyTorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86/</loc>
-        <lastmod>2018-11-30T02:40:05.945Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://Cxiada.github.io/2018/11/28/PyTorch%E5%AD%A6%E4%B9%A0/</loc>
-        <lastmod>2018-11-30T02:35:09.998Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://Cxiada.github.io/2018/11/15/Sklearn%E5%9B%9E%E9%A1%BE/</loc>
-        <lastmod>2018-11-14T16:08:57.242Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://Cxiada.github.io/2018/11/13/Matplotlib%E5%9B%9E%E9%A1%BE/</loc>
-        <lastmod>2018-11-14T16:03:49.214Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://Cxiada.github.io/2018/11/12/Numpy%E5%9B%9E%E9%A1%BE/</loc>
-        <lastmod>2018-11-14T16:03:40.265Z</lastmod>
+        <loc>https://Cxiada.github.io/2018/12/13/PYtorch%E4%B9%8Btorch.nn%E5%AD%A6%E4%B9%A0/</loc>
+        <lastmod>2018-12-13T12:04:48.950Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -56,7 +24,55 @@
 
     <url>
         <loc>https://Cxiada.github.io/2018/11/13/Pandas%E5%9B%9E%E9%A1%BE/</loc>
-        <lastmod>2018-11-14T16:03:24.385Z</lastmod>
+        <lastmod>2018-12-13T08:51:52.952Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://Cxiada.github.io/2018/11/12/Numpy%E5%9B%9E%E9%A1%BE/</loc>
+        <lastmod>2018-12-13T08:51:40.619Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://Cxiada.github.io/2018/11/13/Matplotlib%E5%9B%9E%E9%A1%BE/</loc>
+        <lastmod>2018-12-13T08:51:26.466Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://Cxiada.github.io/2018/11/15/Sklearn%E5%9B%9E%E9%A1%BE/</loc>
+        <lastmod>2018-12-13T08:51:16.161Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://Cxiada.github.io/2018/11/28/Pytorch%E6%A8%A1%E5%9E%8B%E4%BF%9D%E5%AD%98%E4%B8%8E%E8%BD%BD%E5%85%A5/</loc>
+        <lastmod>2018-12-13T08:50:29.047Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://Cxiada.github.io/2018/11/28/PyTorch%E5%AD%A6%E4%B9%A0/</loc>
+        <lastmod>2018-12-13T08:50:07.078Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://Cxiada.github.io/2018/11/28/PyTorch%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86/</loc>
+        <lastmod>2018-12-13T08:49:09.437Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
