@@ -80,7 +80,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
 
-  <meta name="keywords" content="Cxiada‘s blog" />
+  <meta name="keywords" content="机器学习基础,文献," />
 
 
 
@@ -93,16 +93,21 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
 
-<meta name="description" content="做一只快乐的咸鱼">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Cxiada&#39;s blog">
-<meta property="og:url" content="https://Cxiada.github.io/categories/python/Pytorch/index.html">
+<meta name="description" content="经典语义分割网络SegNet，读书笔记，文献翻译">
+<meta name="keywords" content="机器学习基础,文献">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SegNet读书笔记">
+<meta property="og:url" content="https://Cxiada.github.io/2018/12/14/SegNet读书笔记/index.html">
 <meta property="og:site_name" content="Cxiada&#39;s blog">
-<meta property="og:description" content="做一只快乐的咸鱼">
+<meta property="og:description" content="经典语义分割网络SegNet，读书笔记，文献翻译">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="e:/GitHub1/blog/source/image/SegNet读书笔记/图1.png">
+<meta property="og:image" content="e:/GitHub1/blog/source/image/SegNet读书笔记/图2.PNG">
+<meta property="og:updated_time" content="2018-12-17T14:28:19.197Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cxiada&#39;s blog">
-<meta name="twitter:description" content="做一只快乐的咸鱼">
+<meta name="twitter:title" content="SegNet读书笔记">
+<meta name="twitter:description" content="经典语义分割网络SegNet，读书笔记，文献翻译">
+<meta name="twitter:image" content="e:/GitHub1/blog/source/image/SegNet读书笔记/图1.png">
 
 
 
@@ -132,13 +137,13 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
 
-  <link rel="canonical" href="https://Cxiada.github.io/categories/python/Pytorch/"/>
+  <link rel="canonical" href="https://Cxiada.github.io/2018/12/14/SegNet读书笔记/"/>
 
 
 
 
 
-  <title>分类: Pytorch | Cxiada's blog</title>
+  <title>SegNet读书笔记 | Cxiada's blog</title>
   
 
 
@@ -157,7 +162,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 <a href="https://github.com/Cxiada/Cxiada.github.io" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -315,139 +320,322 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Pytorch<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://Cxiada.github.io/2018/12/14/SegNet读书笔记/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xdChen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cxiada's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/12/13/PYtorch之torch.nn学习/" itemprop="url">
-              
-                <span itemprop="name">PYtorch之torch.nn</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">SegNet读书笔记</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-12-13T12:00:00+08:00"
-              content="2018-12-13" >
-          12-13
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-14T12:00:00+08:00">
+                2018-12-14
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/14/SegNet读书笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/12/14/SegNet读书笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/12/14/SegNet读书笔记/" class="leancloud_visitors" data-flag-title="SegNet读书笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+              <span class="post-meta-divider">|</span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计"> 
+                  1.5k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长"> 
+                  7 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/28/Pytorch模型保存与载入/" itemprop="url">
-              
-                <span itemprop="name">Pytorch模型保存与载入</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-28T12:00:02+08:00"
-              content="2018-11-28" >
-          11-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/28/PyTorch加载数据集/" itemprop="url">
-              
-                <span itemprop="name">PyTorch加载数据集</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-28T12:00:01+08:00"
-              content="2018-11-28" >
-          11-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/28/PyTorch学习/" itemprop="url">
-              
-                <span itemprop="name">PyTorch学习</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-28T12:00:00+08:00"
-              content="2018-11-28" >
-          11-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p>经典语义分割网络SegNet，读书笔记，文献翻译</p>
+<a id="more"></a>  
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><blockquote>
+<p>We present a novel and practical deep fully convolutional neural network architecture for <strong><u>semantic pixel-wise segmentation</u></strong> termed SegNet.</p>
+<p>逐个像素语义分割</p>
+<p> This core trainable segmentation engine consists of an <strong><u>encoder network</u></strong>, a corresponding <strong><u>decoder network</u></strong> followed by <strong><u>a pixel-wise classification layer</u></strong>. </p>
+<p>SegNet<strong><u>核心是编码网络</u></strong>+<strong><u>像素级分类层</u></strong>+<u><strong>解码网络</strong></u></p>
+<p>The architecture of the encoder network is topologically identical to the 13 convolutional layers in the VGG16 network . The role of the decoder network is to map the <strong><u>low resolution encoder feature maps</u></strong> to full input resolution feature maps for pixel-wise classification. </p>
+<p>编码网络取了VGG16的前13层（附带BN层）。解码网络就是将<strong><u>低分辨率的特征图</u></strong>解码为输入图片的分辨率图。</p>
+<p>The novelty of SegNet lies is in the manner in which the decoder upsamples its lower resolution input feature map(s). Specifically, the decoder uses <strong><u>pooling indices</u></strong> computed in the max-pooling step of the corresponding encoder to perform non-linear upsampling. This eliminates the need for learning to upsample. The upsampled maps are sparse and are then convolved with trainable filters to produce <strong><u>dense feature maps</u></strong>. </p>
+<p>SegNet网络核心是对低分辨的特征图进行上采样解码。在编码时使用了<strong><u>池化索引</u></strong>来帮助解码时的非线性上采样。这是上采样的特征图是稀疏的，用可训练的滤波器来产生<strong><u>密集的特征图</u></strong>。</p>
+</blockquote>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><blockquote>
+<p>In particular, deep learning has seen huge success lately in handwritten digit recognition, speech, categorising whole images and detecting objects in images. Now there is an active interest for <strong>semantic pixel-wise labelling</strong>. However, some of these recent approaches have tried to directly adopt deep architectures designed for category prediction to pixel-wise labelling. The results, although very encouraging, <strong>appear coarse</strong>. This is primarily because <strong>max pooling and sub-sampling reduce feature map resolution</strong>. Our motivation to design SegNet arises from this need to map low resolution features to input resolution for pixel-wise classification. This mapping must produce features which are useful for <strong><u>accurate boundary localization</u></strong> </p>
+<p>用深度学习的方法逐像素地分类，目前的算法得到的结果还比较粗糙，主要是最大池化层和下采样造成特征图分辨率的下降。SegNet核心是为了从低分辨率特征图到输入分辨率的映射，这种映射必须产生<strong><u>精确的边界定位</u></strong>。</p>
+<p>Of these, the appropriate decoders use the max-pooling indices received from the corresponding encoder to perform non-linear upsampling of their input feature maps.Reusing max-pooling indices in the decoding process has several practical advantages; (i) it improves boundary delineation , (ii) it reduces the number of parameters enabling end-to-end training, and (iii) this form of upsampling can be incorporated into any encoder-decoder architecture such as FCN , with only a little modification. </p>
+<p>好处有三个，增强边界划分能力、减少端到端的训练参数、移植能力强</p>
+<p>Most recent deep architectures for segmentation have identical encoder networks, i.e VGG16, but differ in the form of the decoder network, training and inference. Another common feature is they have trainable parameters in the order of hundreds of millions and thus encounter difficulties in performing end-to end training . The difficulty of training these networks has led to multi-stage training , appending networks to a <strong><u>pre-trained architecture</u></strong> such as FCN , use of supporting aids such as <u><strong>region proposals for inference</strong></u>, <strong><u>disjoint training of classification and segmentation networks</u></strong> and use of additional training data for pre-training  or for full training. In addition, performance boosting post-processing techniques have also been popular. Although all these factors improve performance on challenging benchmarks , it is unfortunately difficult from their quantitative results to disentangle the key design factors necessary to achieve good performance. We therefore analysed the decoding process used in some of these approaches and reveal their pros and cons </p>
+<p>有一些网络训练参数达到百万级别，通常训练的需要额外的辅助。<strong><u>多阶段训练</u></strong>、<strong><u>区域建议</u></strong>、<strong><u>分类和分割网络不相交训练</u></strong>。</p>
+<p>We evaluate the performance of SegNet on two scene segmentation tasks, CamVid road scene segmentation and SUN RGB-D indoor scene segmentation </p>
+<p>使用CamVid 道路场景分割和SUN RGB-D室内场景分割作为基准。</p>
+</blockquote>
+<h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p><img src="E:\GitHub1\blog\source\image\SegNet读书笔记\图1.png" alt="架构"></p>
+<p><img src="E:\GitHub1\blog\source\image\SegNet读书笔记\图2.PNG" alt="反卷积"></p>
+<h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><blockquote>
+<p>In order to perform a controlled benchmark we used the  <strong>SGD solver</strong>  with a fixed <strong>learning rate of 10-3</strong> and <strong><u>momentum of 0.9</u></strong>. The optimization was performed for more than 100 epochs through the dataset until no further performance increase was observed. Dropout of 0.5 was added to the end of deeper convolutional layers in all models to prevent overfitting. For the road scenes which have 11 classes we used a mini-batch size of 5 and for indoor scenes with 37 classeswe used a mini-batch size of 4. </p>
+</blockquote>
+<p>输入尺寸都为360*480。使用SGD，固定的学习率1e-3和<strong><u>0.9的动量</u></strong>，epoch 超过100，直到不再变化。对于11分类采用batchsize=5、37分类batchsize=4。</p>
+<blockquote>
+<p>我们测试了SegNet、FCN、DeepLab-LargFOV、DeconvNet。</p>
+</blockquote>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><blockquote>
+<p>To compare the quantitative performance of the different decoder variants, we use three commonly used performance measures: <strong><u>global accuracy (G)</u></strong> which measures the percentage of pixels correctly classified in the dataset, <strong><u>class average accuracy (C)</u></strong> is the mean of the predictive accuracy over all classes and <strong><u>mean intersection over union (mIoU)</u></strong> over all classes as used in the Pascal VOC12 challenge. The mIoU metric is a more stringent metric than class average accuracy since it penalizes false positive predictions. However, mIoU metric is not optimized for directly through the class balanced cross-entropy loss. </p>
+</blockquote>
+<p>分析指标主要是<strong><u>全局精度</u></strong>、<strong><u>平均分类精度</u></strong>、<strong><u>平均交并比</u></strong>。平均交并比是一个更严格的指标，它不是通过交叉熵直接优化的。</p>
+<blockquote>
+<p>note that The mIoU metric  does not always correspond to human qualitative judgements (ranks) of good quality segmentation. They show with examples that mIoU favours region smoothness and does not evaluate boundary accuracy </p>
+</blockquote>
+<p>平均交并比更倾向于平滑的边界。</p>
+<blockquote>
+<p>The key idea in computing a semantic contour score is to evaluate the F1-measure  which involves computing the precision and recall values between the predicted and ground truth class boundary given a pixel tolerance distance. We used a value of 0.75% of the image diagonal as the tolerance distance. The F1- measure for each class that is present in the ground truth test image is averaged to produce an image F1-measure. Then we compute the whole test set average, denoted the <strong>boundary F1-measure</strong> (BF) by average the image F1 measures. </p>
+</blockquote>
+<p><strong>boundary F1-measure (BF)</strong> 指标可以衡量边界轮廓。</p>
+<blockquote>
+<p>This shows that using a larger decoder is not enough but it is also important to capture encoder<br>feature map information to learn better, particular the fine grained contour information  </p>
+</blockquote>
+<p>增加解码网络有助于结果精度的提高，尤其是边缘提取。</p>
+<h2 id="道路场景分割"><a href="#道路场景分割" class="headerlink" title="道路场景分割"></a>道路场景分割</h2><blockquote>
+<p>输入尺寸都为360*480。使用SGD，固定的学习率1e-3和0.9的动量，batchsize=5</p>
+</blockquote>
+<p>增大训练样本可以提高平均分类精度和平均交并比。</p>
+<p>在CamVid数据集中，训练迭代次数在40K、80K和超过80K，对于最后一次，训练直到精度不再提高或者出现过拟合现象。</p>
+<blockquote>
+<p>Here we note also that over-fitting was not an issue in training these larger models。</p>
+<p><strong>过拟合现象不需要我们着重要考虑的。</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>SegNet</th>
+<th>G</th>
+<th>mIOU</th>
+<th>BF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.5K dataset-traning -140K</td>
+<td>90.40</td>
+<td>60.10</td>
+<td>46.84</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    xdChen
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://Cxiada.github.io/2018/12/14/SegNet读书笔记/" title="SegNet读书笔记">https://Cxiada.github.io/2018/12/14/SegNet读书笔记/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">GNU General Public License v3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习基础/" rel="tag"><i class="fa fa-tag"></i> 机器学习基础</a>
+          
+            <a href="/tags/文献/" rel="tag"><i class="fa fa-tag"></i> 文献</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/13/PYtorch之torch.nn学习/" rel="next" title="PYtorch之torch.nn">
+                <i class="fa fa-chevron-left"></i> PYtorch之torch.nn
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b9dbba7b0467690" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -455,6 +643,20 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -475,8 +677,17 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -569,6 +780,22 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">2.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#架构"><span class="nav-number">3.</span> <span class="nav-text">架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练"><span class="nav-number">4.</span> <span class="nav-text">训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">5.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#道路场景分割"><span class="nav-number">6.</span> <span class="nav-text">道路场景分割</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -722,6 +949,10 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -739,6 +970,18 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://Cxiada.github.io/2018/12/14/SegNet读书笔记/';
+          this.page.identifier = '2018/12/14/SegNet读书笔记/';
+          this.page.title = 'SegNet读书笔记';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
