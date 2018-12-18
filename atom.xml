@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://Cxiada.github.io/"/>
-  <updated>2018-12-17T14:28:19.197Z</updated>
+  <updated>2018-12-18T15:17:10.037Z</updated>
   <id>https://Cxiada.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>FCN读书笔记</title>
+    <link href="https://Cxiada.github.io/2018/12/18/FCN%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <id>https://Cxiada.github.io/2018/12/18/FCN读书笔记/</id>
+    <published>2018-12-18T04:00:00.000Z</published>
+    <updated>2018-12-18T15:17:10.037Z</updated>
+    
+    <content type="html"><![CDATA[<p>经典语义分割网络FCN，读书笔记，文献翻译</p><p>参考译文：<a href="https://www.jianshu.com/p/91c5db272725" target="_blank" rel="noopener">用于语义分割的全卷积网络FCN（UC Berkeley</a></p><a id="more"></a>  <p>[TOC]</p><p><img src="E:\GitHub1\blog\source\image\FCN读书笔记\架构.JPG" alt=""></p><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><blockquote><p>卷积网络在特征分层领域是非常强大的视觉模型。我们证明了经过端到端、像素到像素训练的卷积网络超过目前语义分割中最先进的技术。我们的核心观点是建立 “全卷积” 网络，输入任意尺寸，经过有效的推理和学习产生相应尺寸的输出。</p><p>我们改编当前的分类网络(AlexNet ,the VGG net , and GoogLeNet ) 到完全卷积网络。然后我们定义了一个跳跃式的架构，结合来自深、粗层的语义信息和来自浅、细层的表征信息来产生准确和精细的分割。</p></blockquote><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1 介绍"></a>1 介绍</h2><blockquote><p>Semantic segmentation faces an inherent tension between semantics and location: global information resolves what while local information resolves where. Deep feature hierarchies jointly encode location and semantics in a localto-global pyramid. We define a novel “skip” architecture to combine deep, coarse, semantic information and shallow, fine。</p><p>语义分割面临在语义和位置的内在张力问题：<strong>全局信息解决的 “是什么”</strong>，而<strong>局部信息解决的是 “在哪里</strong>”。深层特征通过非线性的局部到全局金字塔编码了位置和语义信息。我们定义了一种利用集合了深、粗层的语义信息和浅、细层的表征信息的特征谱的跨层架构。</p></blockquote><h2 id="2-相关工作"><a href="#2-相关工作" class="headerlink" title="2 相关工作"></a>2 相关工作</h2><blockquote><p>Dense prediction with convnets Several recent works have applied convnets to dense prediction problems…Common elements of these approaches include </p><p>• small models restricting capacity and receptive fields<br>• patchwise training<br>• post-processing by superpixel projection, random field<br>regularization, filtering, or local classification<br>• input shifting and output interlacing for dense output as introduced by OverFeat<br>• multi-scale pyramid processing<br>• saturating tanh nonlinearities  and<br>• ensembles</p></blockquote><p>这些方法的相同点包括如下：</p><ul><li>限制容量和接收域的小模型</li><li>patchwise 训练</li><li>超像素投影的预处理，随机场正则化、滤波或局部分类 </li><li>输入移位和 dense 输出的隔行交错输出 </li><li>多尺度金字塔处理 </li><li>饱和双曲线正切非线性 </li><li>集成 </li></ul><blockquote><p>whereas our method does without this machinery. However, we do study patchwise training and “shift-and-stitch” dense output  from the perspective of FCNs. We also discuss in-network  sampling, of which the fully connected prediction by Eigen et al.  is a special case. </p><p>然而我们的方法确实没有这种机制。但是我们研究了 patchwise 训练 和从 FCNs 的角度出发的 “shift-and-stitch”dense 输出。我们也讨论了网内上采样，其中 Eigen 等人[7] 的全连接预测是一个特例。</p></blockquote><h2 id="3-全卷积网络"><a href="#3-全卷积网络" class="headerlink" title="3 全卷积网络"></a>3 全卷积网络</h2><blockquote><p>Each layer of data in a convnet is a three-dimensional array of size h × w × d, where h and w are spatial dimensions, and d is the feature or channel dimension. The first layer is the image, with pixel size h × w, and d color channels. Locations in higher layers correspond to the locations in the image they are path-connected to, which are called their receptive fields. </p><p>卷积网的每层数据是一个h × w × d 的三维数组，其中 h 和 w 是空间维度, d 是特征或通道维数。第一层是像素尺寸为  h × w、颜色通道数为 d 的图像。高层中的 locations 和图像中它们连通的 locations 相对应，被称为接收域。</p></blockquote><h3 id="3-1-网络改编"><a href="#3-1-网络改编" class="headerlink" title="3.1 网络改编"></a>3.1 网络改编</h3><p>去掉网络中的全连接层，用卷积层代替。</p><p><img src="E:\GitHub1\blog\source\image\FCN读书笔记\图1.png" alt=""></p><h3 id="3-2-Shift-and-stitch-是滤波稀疏"><a href="#3-2-Shift-and-stitch-是滤波稀疏" class="headerlink" title="3.2 Shift-and stitch 是滤波稀疏"></a>3.2 Shift-and stitch 是滤波稀疏</h3><h3 id="3-3-上采样是向后向卷积"><a href="#3-3-上采样是向后向卷积" class="headerlink" title="3.3 上采样是向后向卷积"></a>3.3 上采样是向后向卷积</h3><blockquote><p>Another way to connect coarse outputs to dense pixels is interpolation. </p><p>使用双线性插值可以从粗糙输出到密集像素输出。</p></blockquote><blockquote><p>Note that the <strong><u>deconvolution</u></strong> filter in such a layer need not be fixed (e.g., to bilinear upsampling), but can be learned. A stack of deconvolution layers and activation functions can even learn a nonlinear upsampling. </p><p>需要注意的是<strong><u>反卷积</u></strong>滤波在这一层不需要被固定不变（比如双线性上采样）但是可以被学习。一堆反卷积层和激励函数甚至能学习一种非线性上采样。</p></blockquote><h3 id="3-4-patchwise-训练是一种损失采样"><a href="#3-4-patchwise-训练是一种损失采样" class="headerlink" title="3.4 patchwise 训练是一种损失采样"></a>3.4 patchwise 训练是一种损失采样</h3><blockquote><p>Sampling in patchwise training can correct class imbalance  and mitigate the spatial correlation of dense patches . In fully convolutional training, class balance can also be achieved by weighting the loss, and loss sampling can be used to address spatial correlation. </p></blockquote><p>patchwise可以实现纠正类的不平衡性和缓和像素密集图的空间相关性。</p><p>前者全卷积网络可以通过改变loss的权重实现，后者通过patchwise实现。</p><h2 id="4-分割框架"><a href="#4-分割框架" class="headerlink" title="4 分割框架"></a>4 分割框架</h2><h3 id="4-1-从分类到-dense-FCN"><a href="#4-1-从分类到-dense-FCN" class="headerlink" title="4.1 从分类到 dense FCN"></a>4.1 从分类到 dense FCN</h3><p>使用VGG16效果比较好，用固定的学习率效果更好，通过额外的数据可以提高mIU。</p><h3 id="4-2-结合-“是什么”-和“在哪里”"><a href="#4-2-结合-“是什么”-和“在哪里”" class="headerlink" title="4.2 结合 “是什么” 和“在哪里”"></a>4.2 结合 “是什么” 和“在哪里”</h3><p><img src="E:\GitHub1\blog\source\image\FCN读书笔记\图2.JPG" alt=""></p><h3 id="4-3-实验"><a href="#4-3-实验" class="headerlink" title="4.3 实验"></a>4.3 实验</h3><h4 id="优化参数"><a href="#优化参数" class="headerlink" title="优化参数"></a>优化参数</h4><ul><li><p>使用SGD，momentum =0.9 </p><p>FCN-AlexNet, FCN-VGG16, and FCN-GoogLeNet  学习率分别为10^(-3), 10^(-4), 和 5^(-5) </p></li><li><p>L2正则化 weight= 5^(-4) 或者 2^(-4)</p></li></ul><h3 id="微调"><a href="#微调" class="headerlink" title="微调"></a>微调</h3><p>全局微调效果要好于局部微调</p><h3 id="分类平衡"><a href="#分类平衡" class="headerlink" title="分类平衡"></a>分类平衡</h3><p>全卷积训练通过权重对损失函数进行类平衡</p><h2 id="测量方法"><a href="#测量方法" class="headerlink" title="测量方法"></a>测量方法</h2><p><strong>度量</strong>　我们从常见的语义分割和场景解析评估中提出四种度量，它们在像素准确率和在联合的区域交叉上是不同的。令 n_ij 为类别 i 的被预测为类别 j 的像素数量，有 n_ij 个不同的类别，令</p><p><img src="E:\GitHub1\blog\source\image\FCN读书笔记\图4.png" alt=""></p><p>为类别 i 的像素总的数量。我们将计算：</p><p><img src="E:\GitHub1\blog\source\image\FCN读书笔记\图5.png" alt=""></p><h2 id="附录-A-IU-上界"><a href="#附录-A-IU-上界" class="headerlink" title="附录 A　IU 上界"></a>附录 A　IU 上界</h2><blockquote><p>我们通过下采样 ground truth 图像，然后再次对它们进行上采样，来模拟可以获得最好的结果，其伴随着特定的下采样因子。</p></blockquote><table><thead><tr><th style="text-align:center">factor</th><th style="text-align:center">mIU</th></tr></thead><tbody><tr><td style="text-align:center">128</td><td style="text-align:center">50.9</td></tr><tr><td style="text-align:center">64</td><td style="text-align:center">73.3</td></tr><tr><td style="text-align:center">32</td><td style="text-align:center">86.1</td></tr><tr><td style="text-align:center">16</td><td style="text-align:center">92.8</td></tr><tr><td style="text-align:center">8</td><td style="text-align:center">96.4</td></tr><tr><td style="text-align:center">4</td><td style="text-align:center">98.5</td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;经典语义分割网络FCN，读书笔记，文献翻译&lt;/p&gt;
+&lt;p&gt;参考译文：&lt;a href=&quot;https://www.jianshu.com/p/91c5db272725&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;用于语义分割的全卷积网络FCN（UC Berkeley&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://Cxiada.github.io/categories/python/"/>
+    
+    
+      <category term="机器学习基础" scheme="https://Cxiada.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="文献" scheme="https://Cxiada.github.io/tags/%E6%96%87%E7%8C%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>SegNet读书笔记</title>

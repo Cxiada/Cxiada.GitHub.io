@@ -80,7 +80,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
 
-  <meta name="keywords" content="机器学习基础,CNN," />
+  <meta name="keywords" content="机器学习基础,文献," />
 
 
 
@@ -93,18 +93,24 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
 
-<meta name="description" content="PyTorch基础，主要解释torch.nn中的函数方法|卷积网络学习">
-<meta name="keywords" content="机器学习基础,CNN">
+<meta name="description" content="经典语义分割网络FCN，读书笔记，文献翻译 参考译文：用于语义分割的全卷积网络FCN（UC Berkeley">
+<meta name="keywords" content="机器学习基础,文献">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PYtorch之torch.nn">
-<meta property="og:url" content="https://Cxiada.github.io/2018/12/13/PYtorch之torch.nn学习/index.html">
+<meta property="og:title" content="FCN读书笔记">
+<meta property="og:url" content="https://Cxiada.github.io/2018/12/18/FCN读书笔记/index.html">
 <meta property="og:site_name" content="Cxiada&#39;s blog">
-<meta property="og:description" content="PyTorch基础，主要解释torch.nn中的函数方法|卷积网络学习">
+<meta property="og:description" content="经典语义分割网络FCN，读书笔记，文献翻译 参考译文：用于语义分割的全卷积网络FCN（UC Berkeley">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-13T12:04:48.950Z">
+<meta property="og:image" content="e:/GitHub1/blog/source/image/FCN读书笔记/架构.JPG">
+<meta property="og:image" content="e:/GitHub1/blog/source/image/FCN读书笔记/图1.png">
+<meta property="og:image" content="e:/GitHub1/blog/source/image/FCN读书笔记/图2.JPG">
+<meta property="og:image" content="e:/GitHub1/blog/source/image/FCN读书笔记/图4.png">
+<meta property="og:image" content="e:/GitHub1/blog/source/image/FCN读书笔记/图5.png">
+<meta property="og:updated_time" content="2018-12-18T15:17:10.037Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PYtorch之torch.nn">
-<meta name="twitter:description" content="PyTorch基础，主要解释torch.nn中的函数方法|卷积网络学习">
+<meta name="twitter:title" content="FCN读书笔记">
+<meta name="twitter:description" content="经典语义分割网络FCN，读书笔记，文献翻译 参考译文：用于语义分割的全卷积网络FCN（UC Berkeley">
+<meta name="twitter:image" content="e:/GitHub1/blog/source/image/FCN读书笔记/架构.JPG">
 
 
 
@@ -134,13 +140,13 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
 
 
-  <link rel="canonical" href="https://Cxiada.github.io/2018/12/13/PYtorch之torch.nn学习/"/>
+  <link rel="canonical" href="https://Cxiada.github.io/2018/12/18/FCN读书笔记/"/>
 
 
 
 
 
-  <title>PYtorch之torch.nn | Cxiada's blog</title>
+  <title>FCN读书笔记 | Cxiada's blog</title>
   
 
 
@@ -331,7 +337,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://Cxiada.github.io/2018/12/13/PYtorch之torch.nn学习/">
+    <link itemprop="mainEntityOfPage" href="https://Cxiada.github.io/2018/12/18/FCN读书笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xdChen">
@@ -348,7 +354,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
         
         
-          <h1 class="post-title" itemprop="name headline">PYtorch之torch.nn</h1>
+          <h1 class="post-title" itemprop="name headline">FCN读书笔记</h1>
         
 
         <div class="post-meta">
@@ -360,8 +366,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T12:00:00+08:00">
-                2018-12-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-18T12:00:00+08:00">
+                2018-12-18
               </time>
             
 
@@ -390,17 +396,6 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
                 
                 
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python/Pytorch/" itemprop="url" rel="index">
-                    <span itemprop="name">Pytorch</span>
-                  </a>
-                </span>
-
-                
-                
               
             </span>
           
@@ -412,9 +407,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/12/13/PYtorch之torch.nn学习/#comments" itemprop="discussionUrl">
+                <a href="/2018/12/18/FCN读书笔记/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/13/PYtorch之torch.nn学习/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/12/18/FCN读书笔记/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,7 +417,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
 
           
           
-             <span id="/2018/12/13/PYtorch之torch.nn学习/" class="leancloud_visitors" data-flag-title="PYtorch之torch.nn">
+             <span id="/2018/12/18/FCN读书笔记/" class="leancloud_visitors" data-flag-title="FCN读书笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -448,7 +443,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计"> 
-                  1k 字
+                  1.4k 字
                 </span>
               
 
@@ -464,7 +459,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长"> 
-                  4 分钟
+                  5 分钟
                 </span>
               
             </div>
@@ -485,109 +480,108 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
       
 
       
-        <p>PyTorch基础，主要解释torch.nn中的函数方法|卷积网络学习</p>
+        <p>经典语义分割网络FCN，读书笔记，文献翻译</p>
+<p>参考译文：<a href="https://www.jianshu.com/p/91c5db272725" target="_blank" rel="noopener">用于语义分割的全卷积网络FCN（UC Berkeley</a></p>
 <a id="more"></a>  
 <p>[TOC]</p>
-<h3 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h3><p><code>add_module(*name*, *module*)</code>添加子模块</p>
-<p><code>apply(*fn*)</code>为所有子模块添加函数</p>
-<p><code>children()</code>返回当前子模块的迭代器</p>
-<p><code>named_children()</code></p>
-<p><code>modules()</code>返回所有子模块</p>
-<p><code>named_modules()</code></p>
-<p><code>parameters(*recurse=True*)</code>返回参数迭代器</p>
-<p><code>named_parameters(*prefix=&#39;&#39;*, *recurse=True*)</code>prefix用来加前缀</p>
-<p><code>cpu()/cuda(*device=None*)</code></p>
-<p><code>eval()/train()</code></p>
-<p><code>double()/float()/half</code></p>
-<p><code>load_state_dict(*state_dict*, *strict=True*)</code></p>
-<p><code>state_dict(*destination=None*, *prefix=&#39;&#39;*, *keep_vars=False*)</code></p>
-<h4 id="torch-nn-Module"><a href="#torch-nn-Module" class="headerlink" title="torch.nn.Module"></a>torch.nn.Module</h4><blockquote>
-<p>所有类都要继承的基类</p>
+<p><img src="E:\GitHub1\blog\source\image\FCN读书笔记\架构.JPG" alt=""></p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><blockquote>
+<p>卷积网络在特征分层领域是非常强大的视觉模型。我们证明了经过端到端、像素到像素训练的卷积网络超过目前语义分割中最先进的技术。我们的核心观点是建立 “全卷积” 网络，输入任意尺寸，经过有效的推理和学习产生相应尺寸的输出。</p>
+<p>我们改编当前的分类网络(AlexNet ,the VGG net , and GoogLeNet ) 到完全卷积网络。然后我们定义了一个跳跃式的架构，结合来自深、粗层的语义信息和来自浅、细层的表征信息来产生准确和精细的分割。</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.nn.functional <span class="keyword">as</span> F</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span><span class="params">(nn.Module)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        super(Model, self).__init__()</span><br><span class="line">        self.conv1 = nn.Conv2d(<span class="number">1</span>, <span class="number">20</span>, <span class="number">5</span>)</span><br><span class="line">        self.conv2 = nn.Conv2d(<span class="number">20</span>, <span class="number">20</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">forward</span><span class="params">(self, x)</span>:</span></span><br><span class="line">       x = F.relu(self.conv1(x))</span><br><span class="line">       <span class="keyword">return</span> F.relu(self.conv2(x))</span><br></pre></td></tr></table></figure>
-<h4 id="add-module"><a href="#add-module" class="headerlink" title="add_module"></a>add_module</h4><blockquote>
-<p>添加子模块</p>
+<h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1 介绍"></a>1 介绍</h2><blockquote>
+<p>Semantic segmentation faces an inherent tension between semantics and location: global information resolves what while local information resolves where. Deep feature hierarchies jointly encode location and semantics in a localto-global pyramid. We define a novel “skip” architecture to combine deep, coarse, semantic information and shallow, fine。</p>
+<p>语义分割面临在语义和位置的内在张力问题：<strong>全局信息解决的 “是什么”</strong>，而<strong>局部信息解决的是 “在哪里</strong>”。深层特征通过非线性的局部到全局金字塔编码了位置和语义信息。我们定义了一种利用集合了深、粗层的语义信息和浅、细层的表征信息的特征谱的跨层架构。</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add_module(name, module)</span><br></pre></td></tr></table></figure>
-<h4 id="apply-fn"><a href="#apply-fn" class="headerlink" title="apply(fn)"></a>apply(<em>fn</em>)</h4><blockquote>
-<p>将函数引用到所有子模块</p>
+<h2 id="2-相关工作"><a href="#2-相关工作" class="headerlink" title="2 相关工作"></a>2 相关工作</h2><blockquote>
+<p>Dense prediction with convnets Several recent works have applied convnets to dense prediction problems…Common elements of these approaches include </p>
+<p>• small models restricting capacity and receptive fields<br>• patchwise training<br>• post-processing by superpixel projection, random field<br>regularization, filtering, or local classification<br>• input shifting and output interlacing for dense output as introduced by OverFeat<br>• multi-scale pyramid processing<br>• saturating tanh nonlinearities  and<br>• ensembles</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">init_weights</span><span class="params">(m)</span>:</span></span><br><span class="line">        print(m)</span><br><span class="line">        <span class="keyword">if</span> type(m) == nn.Linear:</span><br><span class="line">            m.weight.data.fill_(<span class="number">1.0</span>)</span><br><span class="line">            print(m.weight)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>net = nn.Sequential(nn.Linear(<span class="number">2</span>, <span class="number">2</span>), nn.Linear(<span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>net.apply(init_weights)</span><br></pre></td></tr></table></figure>
-<h4 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; for idx, m in enumerate(net.modules()):  #模块迭代器</span><br><span class="line">&gt;&gt;&gt; for param in model.parameters():         #参数迭代器</span><br><span class="line">&gt;&gt;&gt; for child in model.children():           #子模块迭代器</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; for idx, m in enumerate(net.named_modules()):</span><br><span class="line">&gt;&gt;&gt; for name, param in self.named_parameters():</span><br><span class="line">&gt;&gt;&gt; for name, module in model.named_children():   </span><br><span class="line">&gt;&gt;&gt;     if name in [&apos;conv4&apos;, &apos;conv5&apos;]:    #返回的name的一个用法</span><br><span class="line">&gt;&gt;&gt;         print(module)</span><br></pre></td></tr></table></figure>
-<h4 id="parameters"><a href="#parameters" class="headerlink" title="parameters"></a>parameters</h4><table>
+<p>这些方法的相同点包括如下：</p>
+<ul>
+<li>限制容量和接收域的小模型</li>
+<li>patchwise 训练</li>
+<li>超像素投影的预处理，随机场正则化、滤波或局部分类 </li>
+<li>输入移位和 dense 输出的隔行交错输出 </li>
+<li>多尺度金字塔处理 </li>
+<li>饱和双曲线正切非线性 </li>
+<li>集成 </li>
+</ul>
+<blockquote>
+<p>whereas our method does without this machinery. However, we do study patchwise training and “shift-and-stitch” dense output  from the perspective of FCNs. We also discuss in-network  sampling, of which the fully connected prediction by Eigen et al.  is a special case. </p>
+<p>然而我们的方法确实没有这种机制。但是我们研究了 patchwise 训练 和从 FCNs 的角度出发的 “shift-and-stitch”dense 输出。我们也讨论了网内上采样，其中 Eigen 等人[7] 的全连接预测是一个特例。</p>
+</blockquote>
+<h2 id="3-全卷积网络"><a href="#3-全卷积网络" class="headerlink" title="3 全卷积网络"></a>3 全卷积网络</h2><blockquote>
+<p>Each layer of data in a convnet is a three-dimensional array of size h × w × d, where h and w are spatial dimensions, and d is the feature or channel dimension. The first layer is the image, with pixel size h × w, and d color channels. Locations in higher layers correspond to the locations in the image they are path-connected to, which are called their receptive fields. </p>
+<p>卷积网的每层数据是一个h × w × d 的三维数组，其中 h 和 w 是空间维度, d 是特征或通道维数。第一层是像素尺寸为  h × w、颜色通道数为 d 的图像。高层中的 locations 和图像中它们连通的 locations 相对应，被称为接收域。</p>
+</blockquote>
+<h3 id="3-1-网络改编"><a href="#3-1-网络改编" class="headerlink" title="3.1 网络改编"></a>3.1 网络改编</h3><p>去掉网络中的全连接层，用卷积层代替。</p>
+<p><img src="E:\GitHub1\blog\source\image\FCN读书笔记\图1.png" alt=""></p>
+<h3 id="3-2-Shift-and-stitch-是滤波稀疏"><a href="#3-2-Shift-and-stitch-是滤波稀疏" class="headerlink" title="3.2 Shift-and stitch 是滤波稀疏"></a>3.2 Shift-and stitch 是滤波稀疏</h3><h3 id="3-3-上采样是向后向卷积"><a href="#3-3-上采样是向后向卷积" class="headerlink" title="3.3 上采样是向后向卷积"></a>3.3 上采样是向后向卷积</h3><blockquote>
+<p>Another way to connect coarse outputs to dense pixels is interpolation. </p>
+<p>使用双线性插值可以从粗糙输出到密集像素输出。</p>
+</blockquote>
+<blockquote>
+<p>Note that the <strong><u>deconvolution</u></strong> filter in such a layer need not be fixed (e.g., to bilinear upsampling), but can be learned. A stack of deconvolution layers and activation functions can even learn a nonlinear upsampling. </p>
+<p>需要注意的是<strong><u>反卷积</u></strong>滤波在这一层不需要被固定不变（比如双线性上采样）但是可以被学习。一堆反卷积层和激励函数甚至能学习一种非线性上采样。</p>
+</blockquote>
+<h3 id="3-4-patchwise-训练是一种损失采样"><a href="#3-4-patchwise-训练是一种损失采样" class="headerlink" title="3.4 patchwise 训练是一种损失采样"></a>3.4 patchwise 训练是一种损失采样</h3><blockquote>
+<p>Sampling in patchwise training can correct class imbalance  and mitigate the spatial correlation of dense patches . In fully convolutional training, class balance can also be achieved by weighting the loss, and loss sampling can be used to address spatial correlation. </p>
+</blockquote>
+<p>patchwise可以实现纠正类的不平衡性和缓和像素密集图的空间相关性。</p>
+<p>前者全卷积网络可以通过改变loss的权重实现，后者通过patchwise实现。</p>
+<h2 id="4-分割框架"><a href="#4-分割框架" class="headerlink" title="4 分割框架"></a>4 分割框架</h2><h3 id="4-1-从分类到-dense-FCN"><a href="#4-1-从分类到-dense-FCN" class="headerlink" title="4.1 从分类到 dense FCN"></a>4.1 从分类到 dense FCN</h3><p>使用VGG16效果比较好，用固定的学习率效果更好，通过额外的数据可以提高mIU。</p>
+<h3 id="4-2-结合-“是什么”-和“在哪里”"><a href="#4-2-结合-“是什么”-和“在哪里”" class="headerlink" title="4.2 结合 “是什么” 和“在哪里”"></a>4.2 结合 “是什么” 和“在哪里”</h3><p><img src="E:\GitHub1\blog\source\image\FCN读书笔记\图2.JPG" alt=""></p>
+<h3 id="4-3-实验"><a href="#4-3-实验" class="headerlink" title="4.3 实验"></a>4.3 实验</h3><h4 id="优化参数"><a href="#优化参数" class="headerlink" title="优化参数"></a>优化参数</h4><ul>
+<li><p>使用SGD，momentum =0.9 </p>
+<p>FCN-AlexNet, FCN-VGG16, and FCN-GoogLeNet  学习率分别为10^(-3), 10^(-4), 和 5^(-5) </p>
+</li>
+<li><p>L2正则化 weight= 5^(-4) 或者 2^(-4)</p>
+</li>
+</ul>
+<h3 id="微调"><a href="#微调" class="headerlink" title="微调"></a>微调</h3><p>全局微调效果要好于局部微调</p>
+<h3 id="分类平衡"><a href="#分类平衡" class="headerlink" title="分类平衡"></a>分类平衡</h3><p>全卷积训练通过权重对损失函数进行类平衡</p>
+<h2 id="测量方法"><a href="#测量方法" class="headerlink" title="测量方法"></a>测量方法</h2><p><strong>度量</strong>　我们从常见的语义分割和场景解析评估中提出四种度量，它们在像素准确率和在联合的区域交叉上是不同的。令 n_ij 为类别 i 的被预测为类别 j 的像素数量，有 n_ij 个不同的类别，令</p>
+<p><img src="E:\GitHub1\blog\source\image\FCN读书笔记\图4.png" alt=""></p>
+<p>为类别 i 的像素总的数量。我们将计算：</p>
+<p><img src="E:\GitHub1\blog\source\image\FCN读书笔记\图5.png" alt=""></p>
+<h2 id="附录-A-IU-上界"><a href="#附录-A-IU-上界" class="headerlink" title="附录 A　IU 上界"></a>附录 A　IU 上界</h2><blockquote>
+<p>我们通过下采样 ground truth 图像，然后再次对它们进行上采样，来模拟可以获得最好的结果，其伴随着特定的下采样因子。</p>
+</blockquote>
+<table>
 <thead>
 <tr>
-<th>Parameters</th>
-<th>data (<em>Tensor</em>）</th>
+<th style="text-align:center">factor</th>
+<th style="text-align:center">mIU</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td><strong>requires_grad</strong> (<strong><em>bool</em></strong>, <strong><em>optional</em></strong>)</td>
+<td style="text-align:center">128</td>
+<td style="text-align:center">50.9</td>
+</tr>
+<tr>
+<td style="text-align:center">64</td>
+<td style="text-align:center">73.3</td>
+</tr>
+<tr>
+<td style="text-align:center">32</td>
+<td style="text-align:center">86.1</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">92.8</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">96.4</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">98.5</td>
 </tr>
 </tbody>
 </table>
-<h4 id="type-dst-type"><a href="#type-dst-type" class="headerlink" title="type(dst_type)"></a>type(<em>dst_type</em>)</h4><h3 id="Sequential"><a href="#Sequential" class="headerlink" title="Sequential"></a>Sequential</h3><blockquote>
-<p>一个时序容器</p>
-<p>Modules按顺序传入</p>
-<p>或者传入OrderDict</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Example of using Sequential</span></span><br><span class="line">model = nn.Sequential(</span><br><span class="line">          nn.Conv2d(<span class="number">1</span>,<span class="number">20</span>,<span class="number">5</span>),</span><br><span class="line">          nn.ReLU(),</span><br><span class="line">          nn.Conv2d(<span class="number">20</span>,<span class="number">64</span>,<span class="number">5</span>),</span><br><span class="line">          nn.ReLU()</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"><span class="comment"># Example of using Sequential with OrderedDict</span></span><br><span class="line">model = nn.Sequential(OrderedDict([</span><br><span class="line">          (<span class="string">'conv1'</span>, nn.Conv2d(<span class="number">1</span>,<span class="number">20</span>,<span class="number">5</span>)),</span><br><span class="line">          (<span class="string">'relu1'</span>, nn.ReLU()),</span><br><span class="line">          (<span class="string">'conv2'</span>, nn.Conv2d(<span class="number">20</span>,<span class="number">64</span>,<span class="number">5</span>)),</span><br><span class="line">          (<span class="string">'relu2'</span>, nn.ReLU())</span><br><span class="line">        ]))</span><br></pre></td></tr></table></figure>
-<h3 id="ModuleList"><a href="#ModuleList" class="headerlink" title="ModuleList"></a>ModuleList</h3><blockquote>
-<p>相当于创建一个list</p>
-<p>可以使用<code>append</code>(<em>module</em>)和<code>extend</code>(<em>modules</em>)和<code>insert</code>(<em>index</em>, <em>module</em>)修改已有的list</p>
-<p><code>append</code>(<em>module</em>)    将module加到队尾</p>
-<p><code>extend</code>(<em>modules</em>)  将modules组加到队尾</p>
-<p><code>insert</code>(<em>index</em>, <em>module</em>)  插入module</p>
-</blockquote>
-<h3 id="ModuleDict"><a href="#ModuleDict" class="headerlink" title="ModuleDict"></a>ModuleDict</h3><blockquote>
-<p>相当于创建一个Dict    功能同ModuleList</p>
-<p><code>clear</code>()</p>
-<p><code>items</code>()</p>
-<p><code>keys</code>()</p>
-<p><code>values</code>()</p>
-<p><code>pop</code>(<em>key</em>)</p>
-<p><code>update</code>(<em>parameters</em>)</p>
-</blockquote>
-<p>还有类似的<strong>ParameterList</strong>和<strong>ParameterDict</strong></p>
-<h3 id="卷积网络"><a href="#卷积网络" class="headerlink" title="卷积网络"></a>卷积网络</h3><h4 id="2D卷积层-Conv2d"><a href="#2D卷积层-Conv2d" class="headerlink" title="2D卷积层|Conv2d"></a>2D卷积层|Conv2d</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=<span class="number">1</span>, padding=<span class="number">0</span>, dilation=<span class="number">1</span>, groups=<span class="number">1</span>, bias=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
-<h5 id="输出维度公式"><a href="#输出维度公式" class="headerlink" title="输出维度公式"></a>输出维度公式</h5><blockquote>
-<p>Shape:</p>
-</blockquote>
-<ul>
-<li>Input<br>$$<br>(N, C_{in}, H_{in}, W_{in})<br>$$</li>
-</ul>
-<ul>
-<li>Output<br>$$<br>(N,C_{out},H_{out},W_{out})<br>$$</li>
-</ul>
-<p>$$<br>H_{out} = \left\lfloor\frac{H_{in} + 2 \times \text{padding} -\text{kernel_size} }{\text{stride}} + 1\right\rfloor<br>$$</p>
-<h5 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h5><p>数据的最后一列可能会因为kernal大小设定不当而被丢弃（大部分发生在kernal大小不能被输入整除时，适当的padding可以避免这个问题）</p>
-<h4 id="2D反卷积层-ConvTranspose2d"><a href="#2D反卷积层-ConvTranspose2d" class="headerlink" title="2D反卷积层|ConvTranspose2d"></a>2D反卷积层|ConvTranspose2d</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.ConvTranspose2d(in_channels, out_channels, kernel_size, stride=<span class="number">1</span>, padding=<span class="number">0</span>, output_padding=<span class="number">0</span>, groups=<span class="number">1</span>, bias=<span class="keyword">True</span>, dilation=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h5 id="输出维度公式-1"><a href="#输出维度公式-1" class="headerlink" title="输出维度公式"></a>输出维度公式</h5><p>$$<br>H_{out} = (H_{in} - 1) \times \text{stride} - 2 \times \text{padding} + \text{kernel_size} + \text{output_padding}<br>$$</p>
-<h4 id="2D最大池化层-MaxPool2d"><a href="#2D最大池化层-MaxPool2d" class="headerlink" title="2D最大池化层|MaxPool2d"></a>2D最大池化层|MaxPool2d</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.MaxPool2d(kernel_size, stride=<span class="keyword">None</span>, padding=<span class="number">0</span>, dilation=<span class="number">1</span>, return_indices=<span class="keyword">False</span>, ceil_mode=<span class="keyword">False</span>)</span><br><span class="line">return_indices  <span class="keyword">True</span>时返回最大值的序号，用于上采样</span><br><span class="line">ceil_mode   默认向下取整模式</span><br><span class="line"></span><br><span class="line"><span class="comment">#常用kernel_size=stride，same核</span></span><br><span class="line">MaxPool2d(kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>, padding=<span class="number">0</span>)  <span class="comment">#缩小一倍</span></span><br></pre></td></tr></table></figure>
-<h5 id="输出维度公式-2"><a href="#输出维度公式-2" class="headerlink" title="输出维度公式"></a>输出维度公式</h5><p>$$<br>H_{out} = \left\lfloor\frac{H_{in} + 2 * \text{padding} - \text{kernel_size} }{\text{stride}} + 1\right\rfloor<br>$$</p>
-<h4 id="2D反池化层-MaxUnpool2d"><a href="#2D反池化层-MaxUnpool2d" class="headerlink" title="2D反池化层|MaxUnpool2d"></a>2D反池化层|MaxUnpool2d</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.MaxUnpool2d(kernel_size, stride=<span class="keyword">None</span>, padding=<span class="number">0</span>, output_size)</span><br><span class="line"></span><br><span class="line"><span class="comment">#参数参照池化层选取</span></span><br><span class="line">MaxUnpool2d(x4pool, id4, kernel_size=<span class="number">2</span>, stride=<span class="number">2</span>, output_size=size4)</span><br></pre></td></tr></table></figure>
-<p>input</p>
-<ul>
-<li>input: 输入Tensor</li>
-<li>indices: 从<code>MaxPool2d</code>得到的最大值序号</li>
-<li>output_size (optional): 想要的输出维度</li>
-</ul>
-<h4 id="2D平均池化层-AvgPool2d"><a href="#2D平均池化层-AvgPool2d" class="headerlink" title="2D平均池化层|AvgPool2d"></a>2D平均池化层|AvgPool2d</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.AvgPool2d(kernel_size, stride=<span class="keyword">None</span>, padding=<span class="number">0</span>, ceil_mode=<span class="keyword">False</span>, count_include_pad=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="2D标准化层-BatchNorm2d"><a href="#2D标准化层-BatchNorm2d" class="headerlink" title="2D标准化层|BatchNorm2d"></a>2D标准化层|BatchNorm2d</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.BatchNorm2d(num_features, eps=<span class="number">1e-05</span>, momentum=<span class="number">0.1</span>, affine=<span class="keyword">True</span>, track_running_stats=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">num_features=C <span class="comment">#通道数</span></span><br><span class="line">affine=<span class="keyword">True</span> <span class="comment">#添加可学习的仿射变换参数</span></span><br><span class="line">track_running_stats=<span class="keyword">True</span>  <span class="comment">#用于验证预测</span></span><br></pre></td></tr></table></figure>
-<p>$$<br>y = \frac{x - \mathrm{E}[x]}{ \sqrt{\mathrm{Var}[x] + \epsilon}} * \gamma + \beta<br>$$</p>
-<h5 id="与InstanceNorm2d的比较"><a href="#与InstanceNorm2d的比较" class="headerlink" title="与InstanceNorm2d的比较"></a>与InstanceNorm2d的比较</h5><p><strong>BN作用于一个Batch                               IN作用于单张图片</strong></p>
-<p>因此，在特征提取分类等任务中，需要不同图片的联动，选BN</p>
-<p>在生成式类任务如风格迁移等，每张照片有自己的style，选IN</p>
-<h4 id="超分辨卷积-PixelShuffle"><a href="#超分辨卷积-PixelShuffle" class="headerlink" title="超分辨卷积|PixelShuffle"></a>超分辨卷积|PixelShuffle</h4><p>sub-pixel convolution</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.PixelShuffle(upscale_factor)</span><br></pre></td></tr></table></figure>
-<p>将低分辨率图片变为高分辨率图片<br>$$<br> (*, C \times r^2, H, W)—-&gt; (C, H \times r, W \times r)<br>$$</p>
-<h4 id="2D双线性上采样-UpsamplingBilinear2d"><a href="#2D双线性上采样-UpsamplingBilinear2d" class="headerlink" title="2D双线性上采样|UpsamplingBilinear2d"></a>2D双线性上采样|UpsamplingBilinear2d</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.UpsamplingBilinear2d(size=<span class="keyword">None</span>, scale_factor=<span class="keyword">None</span>)</span><br><span class="line"></span><br><span class="line">size=(H_out, W_out)</span><br></pre></td></tr></table></figure>
-<h3 id="损失函数-Loss-functions"><a href="#损失函数-Loss-functions" class="headerlink" title="损失函数|Loss functions"></a>损失函数|Loss functions</h3><p>L1Loss</p>
-<p>MSELoss</p>
-<p>CrossEntropyLoss</p>
-<p>NLLLoss|NLLLoss2d</p>
 
       
     </div>
@@ -608,7 +602,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://Cxiada.github.io/2018/12/13/PYtorch之torch.nn学习/" title="PYtorch之torch.nn">https://Cxiada.github.io/2018/12/13/PYtorch之torch.nn学习/</a>
+    <a href="https://Cxiada.github.io/2018/12/18/FCN读书笔记/" title="FCN读书笔记">https://Cxiada.github.io/2018/12/18/FCN读书笔记/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -625,7 +619,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
           
             <a href="/tags/机器学习基础/" rel="tag"><i class="fa fa-tag"></i> 机器学习基础</a>
           
-            <a href="/tags/CNN/" rel="tag"><i class="fa fa-tag"></i> CNN</a>
+            <a href="/tags/文献/" rel="tag"><i class="fa fa-tag"></i> 文献</a>
           
         </div>
       
@@ -638,8 +632,8 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/11/VGG读书笔记/" rel="next" title="VGG读书笔记">
-                <i class="fa fa-chevron-left"></i> VGG读书笔记
+              <a href="/2018/12/14/SegNet读书笔记/" rel="next" title="SegNet读书笔记">
+                <i class="fa fa-chevron-left"></i> SegNet读书笔记
               </a>
             
           </div>
@@ -647,10 +641,6 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/14/SegNet读书笔记/" rel="prev" title="SegNet读书笔记">
-                SegNet读书笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -831,7 +821,7 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Module"><span class="nav-number">1.</span> <span class="nav-text">Module</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-nn-Module"><span class="nav-number">1.1.</span> <span class="nav-text">torch.nn.Module</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#add-module"><span class="nav-number">1.2.</span> <span class="nav-text">add_module</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apply-fn"><span class="nav-number">1.3.</span> <span class="nav-text">apply(fn)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#迭代器"><span class="nav-number">1.4.</span> <span class="nav-text">迭代器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#parameters"><span class="nav-number">1.5.</span> <span class="nav-text">parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#type-dst-type"><span class="nav-number">1.6.</span> <span class="nav-text">type(dst_type)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sequential"><span class="nav-number">2.</span> <span class="nav-text">Sequential</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ModuleList"><span class="nav-number">3.</span> <span class="nav-text">ModuleList</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ModuleDict"><span class="nav-number">4.</span> <span class="nav-text">ModuleDict</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积网络"><span class="nav-number">5.</span> <span class="nav-text">卷积网络</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2D卷积层-Conv2d"><span class="nav-number">5.1.</span> <span class="nav-text">2D卷积层|Conv2d</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输出维度公式"><span class="nav-number">5.1.1.</span> <span class="nav-text">输出维度公式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Note"><span class="nav-number">5.1.2.</span> <span class="nav-text">Note</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2D反卷积层-ConvTranspose2d"><span class="nav-number">5.2.</span> <span class="nav-text">2D反卷积层|ConvTranspose2d</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输出维度公式-1"><span class="nav-number">5.2.1.</span> <span class="nav-text">输出维度公式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2D最大池化层-MaxPool2d"><span class="nav-number">5.3.</span> <span class="nav-text">2D最大池化层|MaxPool2d</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#输出维度公式-2"><span class="nav-number">5.3.1.</span> <span class="nav-text">输出维度公式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2D反池化层-MaxUnpool2d"><span class="nav-number">5.4.</span> <span class="nav-text">2D反池化层|MaxUnpool2d</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2D平均池化层-AvgPool2d"><span class="nav-number">5.5.</span> <span class="nav-text">2D平均池化层|AvgPool2d</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2D标准化层-BatchNorm2d"><span class="nav-number">5.6.</span> <span class="nav-text">2D标准化层|BatchNorm2d</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#与InstanceNorm2d的比较"><span class="nav-number">5.6.1.</span> <span class="nav-text">与InstanceNorm2d的比较</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#超分辨卷积-PixelShuffle"><span class="nav-number">5.7.</span> <span class="nav-text">超分辨卷积|PixelShuffle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2D双线性上采样-UpsamplingBilinear2d"><span class="nav-number">5.8.</span> <span class="nav-text">2D双线性上采样|UpsamplingBilinear2d</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#损失函数-Loss-functions"><span class="nav-number">6.</span> <span class="nav-text">损失函数|Loss functions</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-介绍"><span class="nav-number">2.</span> <span class="nav-text">1 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-相关工作"><span class="nav-number">3.</span> <span class="nav-text">2 相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-全卷积网络"><span class="nav-number">4.</span> <span class="nav-text">3 全卷积网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-网络改编"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 网络改编</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Shift-and-stitch-是滤波稀疏"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 Shift-and stitch 是滤波稀疏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-上采样是向后向卷积"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 上采样是向后向卷积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-patchwise-训练是一种损失采样"><span class="nav-number">4.4.</span> <span class="nav-text">3.4 patchwise 训练是一种损失采样</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-分割框架"><span class="nav-number">5.</span> <span class="nav-text">4 分割框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-从分类到-dense-FCN"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 从分类到 dense FCN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-结合-“是什么”-和“在哪里”"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 结合 “是什么” 和“在哪里”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-实验"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 实验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优化参数"><span class="nav-number">5.3.1.</span> <span class="nav-text">优化参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微调"><span class="nav-number">5.4.</span> <span class="nav-text">微调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类平衡"><span class="nav-number">5.5.</span> <span class="nav-text">分类平衡</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测量方法"><span class="nav-number">6.</span> <span class="nav-text">测量方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附录-A-IU-上界"><span class="nav-number">7.</span> <span class="nav-text">附录 A　IU 上界</span></a></li></ol></div>
             
 
           </div>
@@ -1014,9 +1004,9 @@ color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canv
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://Cxiada.github.io/2018/12/13/PYtorch之torch.nn学习/';
-          this.page.identifier = '2018/12/13/PYtorch之torch.nn学习/';
-          this.page.title = 'PYtorch之torch.nn';
+          this.page.url = 'https://Cxiada.github.io/2018/12/18/FCN读书笔记/';
+          this.page.identifier = '2018/12/18/FCN读书笔记/';
+          this.page.title = 'FCN读书笔记';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
